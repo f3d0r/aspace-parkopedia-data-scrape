@@ -53,9 +53,9 @@ function getParkpodiaData(successCB, failCB) {
                 routingSub = response.routing.pathname;
                 findFirst = "locations/";
                 filename = routingSub.substring(routingSub.indexOf(findFirst) + findFirst.length, routingSub.length - 1) + ".json"
-                fs.writeFile("exports/" + filename, JSON.stringify(response), 'utf8', function (err) {
+                fs.writeFile("exports/" + filename, JSON.stringify(response, null, 4), 'utf8', function (err) {
                     if (err) {
-                        console.log("ERROR: " + error);
+                        console.log("ERROR 59: " + error);
                         throw error;
                     } else {
                         console.log("SUCCESSFULLY WROTE: " + filename)
@@ -71,6 +71,7 @@ function getParkpodiaData(successCB, failCB) {
             successCB("DONE!");
         })
         .catch(function (error) {
+            console.log("ERROR 75: " + error)
             failCB(error);
         });
 }
