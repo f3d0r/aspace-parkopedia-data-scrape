@@ -1,26 +1,49 @@
 {
-  "name": "db_name_inrix_data_scrape",
-  "version": "1.0.0",
-  "description": "db_name, Inc. - INRIX Data Scraper",
-  "main": "app.js",
-  "dependencies": {
-    "aws-sdk": "^2.318.0",
-    "flat": "^4.1.0",
-    "neek": "^1.1.1",
-    "puppeteer": "^1.8.0"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@gitlab.com/db_name/inrix-data-scrape.git"
-  },
-  "author": "",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://gitlab.com/db_name/inrix-data-scrape/issues"
-  },
-  "homepage": "https://gitlab.com/db_name/inrix-data-scrape#readme"
+    "name": "db_name_inrix_data_scrape",
+    "version": "1.0.0",
+    "description": "db_name, Inc. - INRIX Data Scraper",
+    "main": "app.js",
+    "dependencies": {
+        "aws-sdk": "^2.318.0",
+        "cheerio": "^1.0.0-rc.2",
+        "module-alias": "^2.1.0",
+        "mysql": "^2.16.0",
+        "neek": "^1.1.1",
+        "request": "^2.88.0"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@gitlab.com/db_name/inrix-data-scrape.git"
+    },
+    "author": "",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://gitlab.com/db_name/inrix-data-scrape/issues"
+    },
+    "homepage": "https://gitlab.com/db_name/inrix-data-scrape#readme",
+    "_moduleAliases": {
+        "@root": ".",
+        "@auth-bcrypt": "misc/auth/bcrypt",
+        "@auth-basic": "misc/auth/basic",
+        "@auth-user": "misc/auth/user",
+        "@errors": "misc/errors/errorHandler",
+        "@error-codes": "misc/errors/errorCodes",
+        "@misc": "misc",
+        "@config": "config",
+        "@sql": "database/sqlActions",
+        "@twilio": "misc/twilio",
+        "@timestamp": "misc/timestamp",
+        "@parking-calc": "misc/parkingCalc",
+        "@bcrypt": "misc/auth/bcrypt",
+        "@route-optimization": "misc/routeOptimization",
+        "@body-structure": "config/bodyStructs",
+        "@osrm": "app"
+    },
+    "_moduleDirectories": [
+        "node_modules"
+    ]
 }
