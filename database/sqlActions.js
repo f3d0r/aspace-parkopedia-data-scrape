@@ -10,7 +10,6 @@ module.exports = {
                     sql += ', `' + keys[index] + '` '
                 }
                 sql += ') VALUES ?';
-                console.log("MYSQL QUERY: " + mysql.format(sql, [objects]));
                 connection.query(sql, [objects], function (error, results, fields) {
                     if (error) {
                         return failCB(error);
@@ -89,7 +88,6 @@ module.exports = {
                     }
                     overallSql += mysql.format(sql, whereValues[valueIndex]);
                 }
-                console.log("SQL: \n" + overallSql);
                 // connection.query(sql, whereValues, function (error, rows) {
                 //     if (error)
                 //         return failCB(error);
@@ -120,7 +118,6 @@ module.exports = {
                     }
                     overallSql += mysql.format(sql, updateValues[valueIndex].concat(whereValues[valueIndex]));
                 }
-                console.log("SQL: \n" + overallSql);
                 // connection.query(sql, values, function (error, rows) {
                 //     if (error)
                 //         return failCB(error);
