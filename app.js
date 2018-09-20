@@ -4,8 +4,8 @@ process.setMaxListeners(0);
 var cheerio = require('cheerio')
 var fs = require('fs');
 var request = require('request');
-const config = require('./config/');
 
+const config = require('@config');
 var sql = require('@sql');
 
 startScript()
