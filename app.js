@@ -45,7 +45,14 @@ function startScript() {
             parkopediaURLs = data.split("\n");
             scrapeWithIndex(0, [], function (allResults) {
                 console.log("DONE WRITING FILES - MOVING TO PARSE/COMBINE FILES");
-                combineJSON(allResults);
+                selectAndCombineResults(allResults, function (combinedResults) {
+                    sql.insert.addObjects('parkopedia_parking', ['id', 'lng', 'lat', 'pretty_name', 'pricing', 'payment_process', 'payment_types', 'restrictions', 'surface_type', 'address', 'city', 'country', 'paybyphone', 'capacity', 'facilities', 'phone_number', 'url'], combinedResults, function (response) {
+                        console.log("SUCCESS - UPLOADED RESULTS TO MYSQL - TOTAL RESULTS: " + combinedResults.length);
+                    }, function (error) {
+                        console.log("MYSQL ERROR: " + JSON.stringify(error));
+                        throw error;
+                    });
+                });
             }, function (error) {
                 console.log("ERROR: " + JSON.stringify(error));
             });
@@ -64,6 +71,7 @@ function scrapeWithIndex(index, results, doneCB, failCB) {
             if (err) {
                 return failCB(err);
             } else {
+                console.log("DONE WITH URL " + (index + 1) + " OUT OF " + parkopediaURLs.length);
                 if (index + 1 == parkopediaURLs.length) {
                     doneCB(results);
                 } else {
@@ -76,11 +84,26 @@ function scrapeWithIndex(index, results, doneCB, failCB) {
     })
 }
 
-function combineJSON(allResults) {
+function selectAndCombineResults(allResults, successCB) {
     finalContents = [];
     allResults.forEach(function (currentContent) {
         finalContents.push(selectRelevantContent(currentContent, currentContent.data.refData.features, currentContent.data.refData.ctype, currentContent.data.refData.grestr));
     });
+    finalContents = [].concat.apply([], finalContents);
+    ids = [];
+    combinedResults = [];
+    finalContents.forEach(function (current) {
+        if (ids.indexOf(current[0]) == -1) {
+            ids.push(current[0]);
+            currentArray = [];
+            current.forEach(function (currentContent) {
+                currentArray.push(JSON.stringify(currentContent));
+            });
+            stringifiedContent.push(currentArray);
+        }
+    });
+
+    successCB(combinedResults);
 
     // var print = "";
     // finalContents[0][0].forEach(function (currentInfo) {
@@ -88,37 +111,18 @@ function combineJSON(allResults) {
     // });
     // console.log(print)
 
-    sqlQueries = [];
-    emptyIndecies = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-    finalContents.forEach(function (current) {
-        current.forEach(function (current2) {
-            for (index = 0; index < current2.length; index++) {
-                if (typeof current2[index] == "undefined" || current2[index] == "" || current2[index] == '') {
-                    emptyIndecies[index]++;
-                }
-            }
-        })
-    });
-    console.log(emptyIndecies);
-    sql.insert.addObjects('parkopedia_parking', ['id', 'lng', 'lat', 'pretty_name', 'pricing', 'payment_process', 'payment_types', 'restrictions', 'surface_type', 'address', 'city', 'country', 'paybyphone', 'capacity', 'facilities', 'phone_number', 'url'], finalContents[0][0], function (response) {
-        resolve("SUCCESS!: " + JSON.stringify(response));
-    }, function (error) {
-        console.log("MYSQL ERROR: " + JSON.stringify(error));
-        throw error;
-    });
+    // sqlQueries = [];
+    // emptyIndecies = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     // finalContents.forEach(function (current) {
-    //     sqlQueries.push(
-    //         new Promise(function (resolve, reject) {
-
-    //         })
-    //     );
+    //     current.forEach(function (current2) {
+    //         for (index = 0; index < current2.length; index++) {
+    //             if (typeof current2[index] == "undefined" || current2[index] == "" || current2[index] == '') {
+    //                 emptyIndecies[index]++;
+    //             }
+    //         }
+    //     })
     // });
-    // Promise.all(sqlQueries)
-    //     .then(function (response) {
-
-    //     }).catch(function (error) {
-
-    //     });
+    // console.log(emptyIndecies);
 }
 
 function selectRelevantContent(content, facilityKeys, paymentTypeKeys, restrictionKeys) {
@@ -141,18 +145,16 @@ function selectRelevantContent(content, facilityKeys, paymentTypeKeys, restricti
                 payment_types = "";
                 try {
                     payment_types = paymentTypeKeys[rawPayments[0]];
-                    payment_types.forEach(function (currentPaymentType) {
-                        payment_types += "||" + paymentTypeKeys[currentPaymentType];
-                    });
+                    for (var index = 1; index < rawPayments.length; index++)
+                        payment_types += "||" + paymentTypeKeys[rawPayments[index]];
                 } catch (e) {}
 
                 rawRestrictions = currentFeature.properties.restrictions;
                 restrictions = "";
                 try {
                     restrictions = restrictionKeys[rawRestrictions[0]];
-                    rawRestrictions.forEach(function (currentRestriction) {
-                        rawRestrictions += "||" + restrictionKeys[currentRestriction];
-                    });
+                    for (var index = 1; index < rawRestrictions.length; index++)
+                        rawRestrictions += "||" + restrictionKeys[rawRestrictions[index]];
                 } catch (e) {}
 
                 surface_type = currentFeature.properties.surface_type;
@@ -171,9 +173,8 @@ function selectRelevantContent(content, facilityKeys, paymentTypeKeys, restricti
                 facilities = "";
                 try {
                     facilities = facilityKeys[rawFacilities[0]];
-                    rawFacilities.forEach(function (currentFacility) {
-                        facilities += "||" + facilityKeys[currentFacility];
-                    });
+                    for (var index = 1; index < rawFacilities.length; index++)
+                        facilities += "||" + facilityKeys[rawFacilities[index]];
                 } catch (e) {}
 
                 phone_number = currentFeature.properties.phone;
@@ -182,9 +183,8 @@ function selectRelevantContent(content, facilityKeys, paymentTypeKeys, restricti
                 pricing_json = currentFeature.properties.prices;
 
                 paybyphone = currentFeature.properties.paybyphone;
-                if (paybyphone != '' && typeof paybyphone != "undefined" && paybyphone.length > 0) {
+                if (paybyphone != '' && typeof paybyphone != "undefined" && paybyphone.length > 0)
                     paybyphone = paybyphone[0];
-                }
             }
         });
         finalContent.push([id, lng, lat, pretty_name, pricing_json, payment_process, payment_types, restrictions, surface_type, address, city, country, paybyphone, capacity, facilities, phone_number, url]);
