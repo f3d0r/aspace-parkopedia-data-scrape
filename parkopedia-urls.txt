@@ -2,5 +2,12 @@ https://en.parkopedia.com/parking/locations/seattle_washington_98104_united_stat
 https://en.parkopedia.com/parking/locations/seattle_washington_united_states_c23nb61bnpd/
 https://en.parkopedia.com/parking/locations/cdb_usertol_hill_seattle_washington_98102_united_states_c23nbtdkwxy/
 https://en.parkopedia.com/parking/locations/new_york_city_new_york_united_states_dr5rut0b4mm/
-https://en.parkopedia.com/parking/seattle/?arriving=201809260700&leaving=201809261700
+https://en.parkopedia.com/parking/seattle/?arriving=201809260700&leaving=201809261700/
 https://en.parkopedia.com/parking/meter/8_avenue-267/new_york/
+https://en.parkopedia.com/parking/locations/magnolia_magnolia_washington_98199_united_states_c22zn9z6szm/
+https://en.parkopedia.com/parking/locations/belltown_seattle_washington_98121_united_states_c22yzgwycxc/
+https://en.parkopedia.com/parking/locations/beacon_hill_seattle_washington_98108_united_states_c23n901n5pc/
+https://en.parkopedia.com/parking/locations/mercer_island_washington_united_states_c23ndth9f3p/
+https://en.parkopedia.com/parking/locations/medina_washington_united_states_c23nftj3w2w/
+https://en.parkopedia.com/parking/locations/sea_17801_international_blvd_seattle_washington_98158_united_states_c23jbuy4cn4/
+https://en.parkopedia.com/parking/locations/west_seattle_washington_united_states_c22yxh0bef7/
