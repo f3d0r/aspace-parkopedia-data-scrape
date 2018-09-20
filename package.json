@@ -4,6 +4,8 @@
   "description": "db_name, Inc. - INRIX Data Scraper",
   "main": "app.js",
   "dependencies": {
+    "aws-sdk": "^2.318.0",
+    "flat": "^4.1.0",
     "neek": "^1.1.1",
     "puppeteer": "^1.8.0"
   },
