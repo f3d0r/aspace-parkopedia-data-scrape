@@ -4,11 +4,9 @@
     "description": "db_name, Inc. - INRIX Data Scraper",
     "main": "app.js",
     "dependencies": {
-        "aws-sdk": "^2.318.0",
         "cheerio": "^1.0.0-rc.2",
         "module-alias": "^2.1.0",
         "mysql": "^2.16.0",
-        "neek": "^1.1.1",
         "request": "^2.88.0"
     },
     "devDependencies": {},
