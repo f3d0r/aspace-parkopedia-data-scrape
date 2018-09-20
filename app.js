@@ -51,15 +51,18 @@ function startScript() {
                 for (var index = 0; index < parkopediaURLs.length; index++) {
                     parkopediaURLs[index] += "?country=" + config.SEARCH_PARAMS.COUNTRY + "&arriving=" + arrivalTime + "&departing=" + departureTime;
                 }
+                console.log("URLS           : ");
                 console.log(parkopediaURLs);
-                console.log("ARRIVAL TIME: " + arrivalTime);
-                console.log("DEPARTURE TIME: " + departureTime);
+                console.log("------------------------------------------------------------");
+                console.log("ARRIVAL TIME   : " + arrivalTime);
+                console.log("DEPARTURE TIME : " + departureTime);
                 scrapeWithIndex(0, [], function (allResults) {
-                    console.log("DONE WRITING FILES - MOVING TO PARSE/COMBINE FILES");
+                    console.log("------------------------------------------------------------");
+                    console.log("DONE WRITING FILES           - MOVING TO PARSE/COMBINE FILES");
                     selectAndCombineResults(allResults, function (combinedResults) {
                         console.log("DONE WITH SELECT AND COMBINE - MOVING TO UPLOAD TO MYSQL");
                         sql.insert.addObjects('parkopedia_parking', ['id', 'lng', 'lat', 'pretty_name', 'pricing', 'payment_process', 'payment_types', 'restrictions', 'surface_type', 'address', 'city', 'country', 'paybyphone', 'capacity', 'facilities', 'phone_number', 'url'], combinedResults, function (response) {
-                            console.log("SUCCESS - UPLOADED RESULTS TO MYSQL - TOTAL RESULTS: " + combinedResults.length);
+                            console.log("SUCCESS - UPLOADED RESULTS   - TOTAL RESULTS: " + combinedResults.length);
                             process.exit();
                         }, function (error) {
                             console.log("MYSQL ERROR: " + JSON.stringify(error));
@@ -87,7 +90,7 @@ function scrapeWithIndex(index, results, doneCB, failCB) {
             if (err) {
                 return failCB(err);
             } else {
-                console.log("DONE WITH URL " + (index + 1) + " OUT OF " + parkopediaURLs.length);
+                console.log("DONE WITH URL  : " + (index + 1) + "/" + parkopediaURLs.length);
                 if (index + 1 == parkopediaURLs.length) {
                     doneCB(results);
                 } else {
@@ -113,7 +116,16 @@ function selectAndCombineResults(allResults, successCB) {
             ids.push(current[0]);
             currentArray = [];
             current.forEach(function (currentContent) {
-                currentArray.push(JSON.stringify(currentContent));
+                stringified = JSON.stringify(currentContent);
+                try {
+                    if (stringified.charAt(0) == "\"") {
+                        stringified = stringified.substring(1, stringified.length);
+                    }
+                    if (stringified.charAt(stringified.length - 1) == "\"") {
+                        stringified = stringified.substring(0, stringified.length - 1);
+                    }
+                } catch (e) {}
+                currentArray.push(stringified);
             });
             combinedResults.push(currentArray);
         }
