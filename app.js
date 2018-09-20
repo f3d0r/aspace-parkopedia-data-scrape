@@ -45,7 +45,7 @@ function startScript() {
     });
 }
 
-function getParkpodiaData(failCB, successCB) {
+function getParkpodiaData(successCB, failCB) {
     var reqs = [];
     parkopediaURLs.forEach(function (currentURL) {
         reqs.push(scrape(currentURL)
@@ -55,6 +55,7 @@ function getParkpodiaData(failCB, successCB) {
                 filename = routingSub.substring(routingSub.indexOf(findFirst) + findFirst.length, routingSub.length - 1) + ".json"
                 fs.writeFile("exports/" + filename, JSON.stringify(response), 'utf8', function (err) {
                     if (err) {
+                        console.log("ERROR: " + error);
                         throw error;
                     } else {
                         console.log("SUCCESSFULLY WROTE: " + filename)
