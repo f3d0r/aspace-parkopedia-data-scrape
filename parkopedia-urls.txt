@@ -1,6 +1,6 @@
-https://en.parkopedia.com/parking/locations/seattle_washington_98104_united_states_c23nb36407h/?country=us&arriving=201809260700&leaving=201809261700
-https://en.parkopedia.com/parking/locations/seattle_washington_united_states_c23nb61bnpd/?country=us&arriving=201809260700&leaving=201809261700
-https://en.parkopedia.com/parking/locations/cdb_usertol_hill_seattle_washington_98102_united_states_c23nbtdkwxy/?country=us&arriving=201809260700&leaving=201809261700
-https://en.parkopedia.com/parking/locations/new_york_city_new_york_united_states_dr5rut0b4mm/?country=us&arriving=201809260700&leaving=201809261700
+https://en.parkopedia.com/parking/locations/seattle_washington_98104_united_states_c23nb36407h/
+https://en.parkopedia.com/parking/locations/seattle_washington_united_states_c23nb61bnpd/
+https://en.parkopedia.com/parking/locations/cdb_usertol_hill_seattle_washington_98102_united_states_c23nbtdkwxy/
+https://en.parkopedia.com/parking/locations/new_york_city_new_york_united_states_dr5rut0b4mm/
 https://en.parkopedia.com/parking/seattle/?arriving=201809260700&leaving=201809261700
-https://en.parkopedia.com/parking/meter/8_avenue-267/new_york/?country=us&arriving=201809260700&leaving=201809261700
+https://en.parkopedia.com/parking/meter/8_avenue-267/new_york/

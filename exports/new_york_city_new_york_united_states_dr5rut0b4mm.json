@@ -3,8 +3,8 @@
         "searchParams": {
             "location": "New York City New York United States",
             "country": "us",
-            "arriving": "201809260700",
-            "leaving": "201809261700",
+            "arriving": "201809201530",
+            "leaving": "201809201730",
             "tzoffset": -240
         },
         "refData": {
@@ -823,7 +823,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": 0,
                                         "text": "$0.00",
                                         "rounded": "$0",
@@ -1014,11 +1014,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 27,
-                                        "text": "$27.00",
-                                        "rounded": "$27",
-                                        "encoded": "$27"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 35,
+                                        "text": "$35.00",
+                                        "rounded": "$35",
+                                        "encoded": "$35"
                                     }
                                 ]
                             },
@@ -1027,7 +1027,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 1,
-                                "price": 35,
+                                "price": 25,
                                 "name": 82,
                                 "rating": 0
                             },
@@ -1215,11 +1215,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 37,
-                                        "text": "$37.00",
-                                        "rounded": "$37",
-                                        "encoded": "$37"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 28,
+                                        "text": "$28.00",
+                                        "rounded": "$28",
+                                        "encoded": "$28"
                                     }
                                 ]
                             },
@@ -1228,7 +1228,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 2,
-                                "price": 49,
+                                "price": 19,
                                 "name": 98,
                                 "rating": 1
                             },
@@ -1448,7 +1448,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -1457,7 +1457,7 @@
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 3,
-                                "price": 62,
+                                "price": 63,
                                 "name": 74,
                                 "rating": 45
                             },
@@ -1627,11 +1627,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 27,
-                                        "text": "$27.00",
-                                        "rounded": "$27",
-                                        "encoded": "$27"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 50,
+                                        "text": "$50.00",
+                                        "rounded": "$50",
+                                        "encoded": "$50"
                                     }
                                 ]
                             },
@@ -1640,7 +1640,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 4,
-                                "price": 36,
+                                "price": 49,
                                 "name": 38,
                                 "rating": 46
                             },
@@ -1800,7 +1800,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -1809,7 +1809,7 @@
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 5,
-                                "price": 63,
+                                "price": 64,
                                 "name": 154,
                                 "rating": 47
                             },
@@ -2047,11 +2047,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 22,
-                                        "text": "$22.00",
-                                        "rounded": "$22",
-                                        "encoded": "$22"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 29,
+                                        "text": "$29.00",
+                                        "rounded": "$29",
+                                        "encoded": "$29"
                                     }
                                 ]
                             },
@@ -2060,7 +2060,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 6,
-                                "price": 18,
+                                "price": 21,
                                 "name": 106,
                                 "rating": 2
                             },
@@ -2221,7 +2221,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -2230,7 +2230,7 @@
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 7,
-                                "price": 64,
+                                "price": 65,
                                 "name": 151,
                                 "rating": 48
                             },
@@ -2434,7 +2434,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -2445,7 +2445,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 8,
-                                "price": 65,
+                                "price": 66,
                                 "name": 27,
                                 "rating": 49
                             },
@@ -2662,7 +2662,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -2673,7 +2673,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 9,
-                                "price": 66,
+                                "price": 67,
                                 "name": 26,
                                 "rating": 50
                             },
@@ -2804,7 +2804,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -2813,7 +2813,7 @@
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 10,
-                                "price": 67,
+                                "price": 68,
                                 "name": 141,
                                 "rating": 51
                             },
@@ -2938,7 +2938,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": 60,
                                         "text": "$60.00",
                                         "rounded": "$60",
@@ -2952,7 +2952,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 11,
-                                "price": 58,
+                                "price": 60,
                                 "name": 115,
                                 "rating": 52
                             },
@@ -3138,11 +3138,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 23,
-                                        "text": "$23.00",
-                                        "rounded": "$23",
-                                        "encoded": "$23"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 55,
+                                        "text": "$55.00",
+                                        "rounded": "$55",
+                                        "encoded": "$55"
                                     }
                                 ]
                             },
@@ -3151,7 +3151,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 12,
-                                "price": 26,
+                                "price": 52,
                                 "name": 23,
                                 "rating": 53
                             },
@@ -3389,11 +3389,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 27,
-                                        "text": "$27.00",
-                                        "rounded": "$27",
-                                        "encoded": "$27"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 37,
+                                        "text": "$37.00",
+                                        "rounded": "$37",
+                                        "encoded": "$37"
                                     }
                                 ]
                             },
@@ -3402,7 +3402,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 13,
-                                "price": 37,
+                                "price": 31,
                                 "name": 41,
                                 "rating": 25
                             },
@@ -3591,11 +3591,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 26,
-                                        "text": "$26.00",
-                                        "rounded": "$26",
-                                        "encoded": "$26"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 40,
+                                        "text": "$40.00",
+                                        "rounded": "$40",
+                                        "encoded": "$40"
                                     }
                                 ]
                             },
@@ -3604,7 +3604,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 14,
-                                "price": 33,
+                                "price": 35,
                                 "name": 42,
                                 "rating": 3
                             },
@@ -3817,11 +3817,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 27,
-                                        "text": "$27.00",
-                                        "rounded": "$27",
-                                        "encoded": "$27"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 35,
+                                        "text": "$35.00",
+                                        "rounded": "$35",
+                                        "encoded": "$35"
                                     }
                                 ]
                             },
@@ -3830,7 +3830,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 15,
-                                "price": 38,
+                                "price": 26,
                                 "name": 28,
                                 "rating": 26
                             },
@@ -3979,7 +3979,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -3988,7 +3988,7 @@
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 16,
-                                "price": 68,
+                                "price": 69,
                                 "name": 73,
                                 "rating": 54
                             },
@@ -4141,7 +4141,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -4152,7 +4152,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 17,
-                                "price": 69,
+                                "price": 70,
                                 "name": 29,
                                 "rating": 55
                             },
@@ -4319,7 +4319,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -4330,7 +4330,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 18,
-                                "price": 70,
+                                "price": 71,
                                 "name": 24,
                                 "rating": 56
                             },
@@ -4534,7 +4534,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -4545,7 +4545,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 19,
-                                "price": 71,
+                                "price": 72,
                                 "name": 25,
                                 "rating": 57
                             },
@@ -4816,11 +4816,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 28,
-                                        "text": "$28.00",
-                                        "rounded": "$28",
-                                        "encoded": "$28"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 29,
+                                        "text": "$29.00",
+                                        "rounded": "$29",
+                                        "encoded": "$29"
                                     }
                                 ]
                             },
@@ -4829,7 +4829,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 20,
-                                "price": 41,
+                                "price": 22,
                                 "name": 4,
                                 "rating": 43
                             },
@@ -4962,7 +4962,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": 60,
                                         "text": "$60.00",
                                         "rounded": "$60",
@@ -4976,7 +4976,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 21,
-                                "price": 59,
+                                "price": 61,
                                 "name": 100,
                                 "rating": 58
                             },
@@ -5106,7 +5106,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -5115,7 +5115,7 @@
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 22,
-                                "price": 72,
+                                "price": 73,
                                 "name": 140,
                                 "rating": 59
                             },
@@ -5275,11 +5275,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 60,
-                                        "text": "$60.00",
-                                        "rounded": "$60",
-                                        "encoded": "$60"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 50,
+                                        "text": "$50.00",
+                                        "rounded": "$50",
+                                        "encoded": "$50"
                                     }
                                 ]
                             },
@@ -5288,7 +5288,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 23,
-                                "price": 60,
+                                "price": 50,
                                 "name": 20,
                                 "rating": 60
                             },
@@ -5599,11 +5599,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 39,
-                                        "text": "$39.00",
-                                        "rounded": "$39",
-                                        "encoded": "$39"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 25,
+                                        "text": "$25.00",
+                                        "rounded": "$25",
+                                        "encoded": "$25"
                                     }
                                 ]
                             },
@@ -5612,7 +5612,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 24,
-                                "price": 50,
+                                "price": 15,
                                 "name": 7,
                                 "rating": 4
                             },
@@ -5788,7 +5788,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -5797,7 +5797,7 @@
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 25,
-                                "price": 73,
+                                "price": 74,
                                 "name": 152,
                                 "rating": 61
                             },
@@ -5927,7 +5927,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -6068,7 +6068,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -6079,7 +6079,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 27,
-                                "price": 74,
+                                "price": 76,
                                 "name": 129,
                                 "rating": 63
                             },
@@ -6328,11 +6328,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 20,
-                                        "text": "$20.00",
-                                        "rounded": "$20",
-                                        "encoded": "$20"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 35,
+                                        "text": "$35.00",
+                                        "rounded": "$35",
+                                        "encoded": "$35"
                                     }
                                 ]
                             },
@@ -6341,7 +6341,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 28,
-                                "price": 12,
+                                "price": 27,
                                 "name": 104,
                                 "rating": 5
                             },
@@ -6476,7 +6476,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -6487,7 +6487,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 29,
-                                "price": 76,
+                                "price": 77,
                                 "name": 153,
                                 "rating": 64
                             },
@@ -6736,11 +6736,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 28,
-                                        "text": "$28.00",
-                                        "rounded": "$28",
-                                        "encoded": "$28"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 44,
+                                        "text": "$44.00",
+                                        "rounded": "$44",
+                                        "encoded": "$44"
                                     }
                                 ]
                             },
@@ -6749,7 +6749,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 30,
-                                "price": 42,
+                                "price": 44,
                                 "name": 15,
                                 "rating": 6
                             },
@@ -6942,11 +6942,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 40,
-                                        "text": "$40.00",
-                                        "rounded": "$40",
-                                        "encoded": "$40"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 30,
+                                        "text": "$30.00",
+                                        "rounded": "$30",
+                                        "encoded": "$30"
                                     }
                                 ]
                             },
@@ -6955,7 +6955,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 31,
-                                "price": 52,
+                                "price": 23,
                                 "name": 93,
                                 "rating": 7
                             },
@@ -7117,7 +7117,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -7327,7 +7327,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -7338,7 +7338,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 33,
-                                "price": 77,
+                                "price": 79,
                                 "name": 39,
                                 "rating": 65
                             },
@@ -7540,7 +7540,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -7549,7 +7549,7 @@
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 34,
-                                "price": 79,
+                                "price": 80,
                                 "name": 130,
                                 "rating": 67
                             },
@@ -7698,7 +7698,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -7707,7 +7707,7 @@
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 35,
-                                "price": 80,
+                                "price": 81,
                                 "name": 83,
                                 "rating": 68
                             },
@@ -7855,7 +7855,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -7866,7 +7866,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 36,
-                                "price": 81,
+                                "price": 82,
                                 "name": 77,
                                 "rating": 69
                             },
@@ -8015,7 +8015,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -8024,7 +8024,7 @@
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 37,
-                                "price": 82,
+                                "price": 83,
                                 "name": 84,
                                 "rating": 70
                             },
@@ -8225,11 +8225,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 27,
-                                        "text": "$27.00",
-                                        "rounded": "$27",
-                                        "encoded": "$27"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 55,
+                                        "text": "$55.00",
+                                        "rounded": "$55",
+                                        "encoded": "$55"
                                     }
                                 ]
                             },
@@ -8238,7 +8238,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 38,
-                                "price": 39,
+                                "price": 53,
                                 "name": 11,
                                 "rating": 8
                             },
@@ -8432,11 +8432,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 25,
-                                        "text": "$25.00",
-                                        "rounded": "$25",
-                                        "encoded": "$25"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 37,
+                                        "text": "$37.00",
+                                        "rounded": "$37",
+                                        "encoded": "$37"
                                     }
                                 ]
                             },
@@ -8445,7 +8445,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 39,
-                                "price": 29,
+                                "price": 32,
                                 "name": 35,
                                 "rating": 9
                             },
@@ -8625,11 +8625,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 45,
-                                        "text": "$45.00",
-                                        "rounded": "$45",
-                                        "encoded": "$45"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 37,
+                                        "text": "$37.00",
+                                        "rounded": "$37",
+                                        "encoded": "$37"
                                     }
                                 ]
                             },
@@ -8638,7 +8638,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 40,
-                                "price": 54,
+                                "price": 33,
                                 "name": 37,
                                 "rating": 10
                             },
@@ -8873,11 +8873,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 21,
-                                        "text": "$21.00",
-                                        "rounded": "$21",
-                                        "encoded": "$21"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 55,
+                                        "text": "$55.00",
+                                        "rounded": "$55",
+                                        "encoded": "$55"
                                     }
                                 ]
                             },
@@ -8886,7 +8886,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 41,
-                                "price": 15,
+                                "price": 54,
                                 "name": 89,
                                 "rating": 27
                             },
@@ -9088,11 +9088,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 22,
-                                        "text": "$22.00",
-                                        "rounded": "$22",
-                                        "encoded": "$22"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 55,
+                                        "text": "$55.00",
+                                        "rounded": "$55",
+                                        "encoded": "$55"
                                     }
                                 ]
                             },
@@ -9101,7 +9101,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 42,
-                                "price": 19,
+                                "price": 55,
                                 "name": 80,
                                 "rating": 28
                             },
@@ -9306,7 +9306,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -9317,7 +9317,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 43,
-                                "price": 83,
+                                "price": 84,
                                 "name": 21,
                                 "rating": 71
                             },
@@ -9540,11 +9540,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 48,
-                                        "text": "$48.00",
-                                        "rounded": "$48",
-                                        "encoded": "$48"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 38,
+                                        "text": "$38.00",
+                                        "rounded": "$38",
+                                        "encoded": "$38"
                                     }
                                 ]
                             },
@@ -9553,7 +9553,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 44,
-                                "price": 55,
+                                "price": 34,
                                 "name": 101,
                                 "rating": 11
                             },
@@ -9686,7 +9686,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": 75,
                                         "text": "$75.00",
                                         "rounded": "$75",
@@ -9700,7 +9700,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 45,
-                                "price": 61,
+                                "price": 62,
                                 "name": 103,
                                 "rating": 72
                             },
@@ -9886,11 +9886,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 25,
-                                        "text": "$25.00",
-                                        "rounded": "$25",
-                                        "encoded": "$25"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 43,
+                                        "text": "$43.00",
+                                        "rounded": "$43",
+                                        "encoded": "$43"
                                     }
                                 ]
                             },
@@ -9899,7 +9899,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 46,
-                                "price": 30,
+                                "price": 40,
                                 "name": 3,
                                 "rating": 12
                             },
@@ -10074,7 +10074,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -10083,7 +10083,7 @@
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 47,
-                                "price": 84,
+                                "price": 85,
                                 "name": 79,
                                 "rating": 73
                             },
@@ -10249,7 +10249,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -10258,7 +10258,7 @@
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 48,
-                                "price": 85,
+                                "price": 86,
                                 "name": 68,
                                 "rating": 74
                             },
@@ -10466,7 +10466,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -10475,7 +10475,7 @@
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 49,
-                                "price": 86,
+                                "price": 87,
                                 "name": 133,
                                 "rating": 75
                             },
@@ -10603,7 +10603,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -10612,7 +10612,7 @@
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 50,
-                                "price": 87,
+                                "price": 88,
                                 "name": 139,
                                 "rating": 76
                             },
@@ -10752,7 +10752,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -10761,7 +10761,7 @@
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 51,
-                                "price": 88,
+                                "price": 89,
                                 "name": 150,
                                 "rating": 77
                             },
@@ -10908,7 +10908,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -10919,7 +10919,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 52,
-                                "price": 89,
+                                "price": 90,
                                 "name": 48,
                                 "rating": 78
                             },
@@ -11042,7 +11042,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -11053,7 +11053,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 53,
-                                "price": 90,
+                                "price": 91,
                                 "name": 95,
                                 "rating": 79
                             },
@@ -11206,7 +11206,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -11217,7 +11217,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 54,
-                                "price": 91,
+                                "price": 92,
                                 "name": 149,
                                 "rating": 80
                             },
@@ -11391,7 +11391,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -11400,7 +11400,7 @@
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 55,
-                                "price": 92,
+                                "price": 93,
                                 "name": 155,
                                 "rating": 81
                             },
@@ -11597,7 +11597,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -11762,7 +11762,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -11773,7 +11773,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 57,
-                                "price": 93,
+                                "price": 95,
                                 "name": 144,
                                 "rating": 83
                             },
@@ -12011,11 +12011,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 22,
-                                        "text": "$22.00",
-                                        "rounded": "$22",
-                                        "encoded": "$22"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 30,
+                                        "text": "$30.00",
+                                        "rounded": "$30",
+                                        "encoded": "$30"
                                     }
                                 ]
                             },
@@ -12024,7 +12024,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 58,
-                                "price": 20,
+                                "price": 24,
                                 "name": 50,
                                 "rating": 41
                             },
@@ -12264,11 +12264,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 25,
-                                        "text": "$25.00",
-                                        "rounded": "$25",
-                                        "encoded": "$25"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 40,
+                                        "text": "$40.00",
+                                        "rounded": "$40",
+                                        "encoded": "$40"
                                     }
                                 ]
                             },
@@ -12277,7 +12277,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 59,
-                                "price": 31,
+                                "price": 36,
                                 "name": 1,
                                 "rating": 13
                             },
@@ -12421,7 +12421,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -12430,7 +12430,7 @@
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 60,
-                                "price": 95,
+                                "price": 96,
                                 "name": 138,
                                 "rating": 84
                             },
@@ -12663,11 +12663,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 22,
-                                        "text": "$22.00",
-                                        "rounded": "$22",
-                                        "encoded": "$22"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 55,
+                                        "text": "$55.00",
+                                        "rounded": "$55",
+                                        "encoded": "$55"
                                     }
                                 ]
                             },
@@ -12676,7 +12676,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 61,
-                                "price": 21,
+                                "price": 56,
                                 "name": 36,
                                 "rating": 29
                             },
@@ -12851,7 +12851,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -12860,7 +12860,7 @@
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 62,
-                                "price": 96,
+                                "price": 97,
                                 "name": 78,
                                 "rating": 85
                             },
@@ -13057,7 +13057,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -13068,7 +13068,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 63,
-                                "price": 97,
+                                "price": 98,
                                 "name": 19,
                                 "rating": 86
                             },
@@ -13216,16 +13216,18 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": -1,
-                                        "encoded": "--"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 7,
+                                        "text": "$7.00",
+                                        "rounded": "$7",
+                                        "encoded": "$7.00"
                                     }
                                 ]
                             },
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 64,
-                                "price": 98,
+                                "price": 9,
                                 "name": 43,
                                 "rating": 87
                             },
@@ -13427,11 +13429,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 19,
-                                        "text": "$19.00",
-                                        "rounded": "$19",
-                                        "encoded": "$19"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 23,
+                                        "text": "$23.00",
+                                        "rounded": "$23",
+                                        "encoded": "$23"
                                     }
                                 ]
                             },
@@ -13440,7 +13442,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 65,
-                                "price": 11,
+                                "price": 13,
                                 "name": 22,
                                 "rating": 30
                             },
@@ -13651,11 +13653,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 20,
-                                        "text": "$20.00",
-                                        "rounded": "$20",
-                                        "encoded": "$20"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 43,
+                                        "text": "$43.00",
+                                        "rounded": "$43",
+                                        "encoded": "$43"
                                     }
                                 ]
                             },
@@ -13664,7 +13666,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 66,
-                                "price": 13,
+                                "price": 41,
                                 "name": 69,
                                 "rating": 14
                             },
@@ -13815,7 +13817,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -14052,7 +14054,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -14061,7 +14063,7 @@
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 68,
-                                "price": 100,
+                                "price": 101,
                                 "name": 12,
                                 "rating": 89
                             },
@@ -14217,7 +14219,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -14228,7 +14230,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 69,
-                                "price": 101,
+                                "price": 100,
                                 "name": 76,
                                 "rating": 90
                             },
@@ -14463,11 +14465,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 22,
-                                        "text": "$22.00",
-                                        "rounded": "$22",
-                                        "encoded": "$22"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 45,
+                                        "text": "$45.00",
+                                        "rounded": "$45",
+                                        "encoded": "$45"
                                     }
                                 ]
                             },
@@ -14476,7 +14478,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 70,
-                                "price": 22,
+                                "price": 46,
                                 "name": 75,
                                 "rating": 15
                             },
@@ -14653,7 +14655,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -14868,11 +14870,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 27,
-                                        "text": "$27.00",
-                                        "rounded": "$27",
-                                        "encoded": "$27"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 41,
+                                        "text": "$41.00",
+                                        "rounded": "$41",
+                                        "encoded": "$41"
                                     }
                                 ]
                             },
@@ -14881,7 +14883,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 72,
-                                "price": 40,
+                                "price": 38,
                                 "name": 52,
                                 "rating": 31
                             },
@@ -15039,7 +15041,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -15203,7 +15205,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -15214,7 +15216,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 74,
-                                "price": 104,
+                                "price": 105,
                                 "name": 132,
                                 "rating": 93
                             },
@@ -15418,7 +15420,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -15429,7 +15431,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 75,
-                                "price": 105,
+                                "price": 104,
                                 "name": 63,
                                 "rating": 94
                             },
@@ -15586,7 +15588,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -15772,7 +15774,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -16002,7 +16004,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -16199,11 +16201,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 42,
-                                        "text": "$42.00",
-                                        "rounded": "$42",
-                                        "encoded": "$42"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 35,
+                                        "text": "$35.00",
+                                        "rounded": "$35",
+                                        "encoded": "$35"
                                     }
                                 ]
                             },
@@ -16212,7 +16214,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 79,
-                                "price": 53,
+                                "price": 28,
                                 "name": 62,
                                 "rating": 16
                             },
@@ -16488,11 +16490,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 22,
-                                        "text": "$22.00",
-                                        "rounded": "$22",
-                                        "encoded": "$22"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 25,
+                                        "text": "$25.00",
+                                        "rounded": "$25",
+                                        "encoded": "$25"
                                     }
                                 ]
                             },
@@ -16501,7 +16503,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 80,
-                                "price": 23,
+                                "price": 16,
                                 "name": 51,
                                 "rating": 32
                             },
@@ -16703,11 +16705,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 28,
-                                        "text": "$28.00",
-                                        "rounded": "$28",
-                                        "encoded": "$28"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 55,
+                                        "text": "$55.00",
+                                        "rounded": "$55",
+                                        "encoded": "$55"
                                     }
                                 ]
                             },
@@ -16716,7 +16718,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 81,
-                                "price": 43,
+                                "price": 57,
                                 "name": 10,
                                 "rating": 17
                             },
@@ -16937,7 +16939,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -17166,11 +17168,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 22,
-                                        "text": "$22.00",
-                                        "rounded": "$22",
-                                        "encoded": "$22"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 25,
+                                        "text": "$25.00",
+                                        "rounded": "$25",
+                                        "encoded": "$25"
                                     }
                                 ]
                             },
@@ -17179,7 +17181,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 83,
-                                "price": 24,
+                                "price": 17,
                                 "name": 66,
                                 "rating": 18
                             },
@@ -17380,11 +17382,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 28,
-                                        "text": "$28.00",
-                                        "rounded": "$28",
-                                        "encoded": "$28"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 55,
+                                        "text": "$55.00",
+                                        "rounded": "$55",
+                                        "encoded": "$55"
                                     }
                                 ]
                             },
@@ -17393,7 +17395,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 84,
-                                "price": 44,
+                                "price": 58,
                                 "name": 65,
                                 "rating": 19
                             },
@@ -17581,11 +17583,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 28,
-                                        "text": "$28.00",
-                                        "rounded": "$28",
-                                        "encoded": "$28"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 43,
+                                        "text": "$43.00",
+                                        "rounded": "$43",
+                                        "encoded": "$43"
                                     }
                                 ]
                             },
@@ -17594,7 +17596,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 85,
-                                "price": 45,
+                                "price": 42,
                                 "name": 67,
                                 "rating": 20
                             },
@@ -17743,7 +17745,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -17919,11 +17921,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 52,
-                                        "text": "$52.00",
-                                        "rounded": "$52",
-                                        "encoded": "$52"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 44,
+                                        "text": "$44.00",
+                                        "rounded": "$44",
+                                        "encoded": "$44"
                                     }
                                 ]
                             },
@@ -17932,7 +17934,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 87,
-                                "price": 56,
+                                "price": 45,
                                 "name": 54,
                                 "rating": 21
                             },
@@ -18131,18 +18133,18 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 55,
-                                        "text": "$55.00",
-                                        "rounded": "$55",
-                                        "encoded": "$55"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 45,
+                                        "text": "$45.00",
+                                        "rounded": "$45",
+                                        "encoded": "$45"
                                     }
                                 ]
                             },
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 88,
-                                "price": 57,
+                                "price": 47,
                                 "name": 9,
                                 "rating": 22
                             },
@@ -18371,7 +18373,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -18568,11 +18570,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 26,
-                                        "text": "$26.00",
-                                        "rounded": "$26",
-                                        "encoded": "$26"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 35,
+                                        "text": "$35.00",
+                                        "rounded": "$35",
+                                        "encoded": "$35"
                                     }
                                 ]
                             },
@@ -18581,7 +18583,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 90,
-                                "price": 34,
+                                "price": 29,
                                 "name": 53,
                                 "rating": 33
                             },
@@ -18769,11 +18771,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 23,
-                                        "text": "$23.00",
-                                        "rounded": "$23",
-                                        "encoded": "$23"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 50,
+                                        "text": "$50.00",
+                                        "rounded": "$50",
+                                        "encoded": "$50"
                                     }
                                 ]
                             },
@@ -18782,7 +18784,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 91,
-                                "price": 27,
+                                "price": 51,
                                 "name": 57,
                                 "rating": 34
                             },
@@ -19019,18 +19021,18 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 21,
-                                        "text": "$21.00",
-                                        "rounded": "$21",
-                                        "encoded": "$21"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 45,
+                                        "text": "$45.00",
+                                        "rounded": "$45",
+                                        "encoded": "$45"
                                     }
                                 ]
                             },
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 92,
-                                "price": 16,
+                                "price": 48,
                                 "name": 81,
                                 "rating": 35
                             },
@@ -19229,11 +19231,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 28,
-                                        "text": "$28.00",
-                                        "rounded": "$28",
-                                        "encoded": "$28"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 55,
+                                        "text": "$55.00",
+                                        "rounded": "$55",
+                                        "encoded": "$55"
                                     }
                                 ]
                             },
@@ -19242,7 +19244,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 93,
-                                "price": 46,
+                                "price": 59,
                                 "name": 55,
                                 "rating": 23
                             },
@@ -19446,11 +19448,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 23,
-                                        "text": "$23.00",
-                                        "rounded": "$23",
-                                        "encoded": "$23"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 42,
+                                        "text": "$42.00",
+                                        "rounded": "$42",
+                                        "encoded": "$42"
                                     }
                                 ]
                             },
@@ -19459,7 +19461,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 94,
-                                "price": 28,
+                                "price": 39,
                                 "name": 117,
                                 "rating": 36
                             },
@@ -19623,7 +19625,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -19833,7 +19835,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -20072,11 +20074,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 29,
-                                        "text": "$29.00",
-                                        "rounded": "$29",
-                                        "encoded": "$29"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 43,
+                                        "text": "$43.00",
+                                        "rounded": "$43",
+                                        "encoded": "$43"
                                     }
                                 ]
                             },
@@ -20085,7 +20087,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 97,
-                                "price": 47,
+                                "price": 43,
                                 "name": 88,
                                 "rating": 24
                             },
@@ -20219,7 +20221,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -20372,7 +20374,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -20686,11 +20688,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 39,
-                                        "text": "$39.00",
-                                        "rounded": "$39",
-                                        "encoded": "$39"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 28,
+                                        "text": "$28.00",
+                                        "rounded": "$28",
+                                        "encoded": "$28"
                                     }
                                 ]
                             },
@@ -20699,7 +20701,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 100,
-                                "price": 51,
+                                "price": 20,
                                 "name": 99,
                                 "rating": 37
                             },
@@ -20903,7 +20905,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -21201,11 +21203,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 36.5,
-                                        "text": "$36.50",
-                                        "rounded": "$37",
-                                        "encoded": "$37"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 23.5,
+                                        "text": "$23.50",
+                                        "rounded": "$24",
+                                        "encoded": "$24"
                                     }
                                 ]
                             },
@@ -21214,7 +21216,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 102,
-                                "price": 48,
+                                "price": 14,
                                 "name": 40,
                                 "rating": 42
                             },
@@ -21362,7 +21364,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -21588,11 +21590,11 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 21,
-                                        "text": "$21.00",
-                                        "rounded": "$21",
-                                        "encoded": "$21"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 35,
+                                        "text": "$35.00",
+                                        "rounded": "$35",
+                                        "encoded": "$35"
                                     }
                                 ]
                             },
@@ -21601,7 +21603,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 104,
-                                "price": 17,
+                                "price": 30,
                                 "name": 18,
                                 "rating": 38
                             },
@@ -21700,7 +21702,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -21709,7 +21711,7 @@
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 105,
-                                "price": 118,
+                                "price": 119,
                                 "name": 146,
                                 "rating": 107
                             },
@@ -21800,7 +21802,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -21809,7 +21811,7 @@
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 106,
-                                "price": 119,
+                                "price": 118,
                                 "name": 145,
                                 "rating": 108
                             },
@@ -21998,18 +22000,18 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
-                                        "amount": 20,
-                                        "text": "$20.00",
-                                        "rounded": "$20",
-                                        "encoded": "$20"
+                                        "date": "201809201530-201809201730",
+                                        "amount": 40,
+                                        "text": "$40.00",
+                                        "rounded": "$40",
+                                        "encoded": "$40"
                                     }
                                 ]
                             },
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 107,
-                                "price": 14,
+                                "price": 37,
                                 "name": 46,
                                 "rating": 39
                             },
@@ -22164,7 +22166,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -22331,7 +22333,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -22498,7 +22500,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -22664,7 +22666,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -22804,7 +22806,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -22963,7 +22965,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -23122,7 +23124,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -23301,7 +23303,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -23310,7 +23312,7 @@
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 115,
-                                "price": 128,
+                                "price": 127,
                                 "name": 60,
                                 "rating": 116
                             },
@@ -23440,7 +23442,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -23449,7 +23451,7 @@
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 116,
-                                "price": 127,
+                                "price": 128,
                                 "name": 122,
                                 "rating": 117
                             },
@@ -23662,7 +23664,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -23872,7 +23874,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -24037,7 +24039,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -24185,7 +24187,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -24351,7 +24353,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -24490,7 +24492,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -24635,7 +24637,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -24644,7 +24646,7 @@
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 123,
-                                "price": 136,
+                                "price": 135,
                                 "name": 136,
                                 "rating": 124
                             },
@@ -24848,7 +24850,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -24859,7 +24861,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 124,
-                                "price": 135,
+                                "price": 136,
                                 "name": 16,
                                 "rating": 125
                             },
@@ -25002,7 +25004,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -25011,7 +25013,7 @@
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 125,
-                                "price": 138,
+                                "price": 137,
                                 "name": 126,
                                 "rating": 126
                             },
@@ -25141,7 +25143,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": 0,
                                         "text": "$0.00",
                                         "rounded": "$0",
@@ -25278,7 +25280,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -25287,7 +25289,7 @@
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 127,
-                                "price": 137,
+                                "price": 138,
                                 "name": 121,
                                 "rating": 128
                             },
@@ -25430,7 +25432,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -25441,7 +25443,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 128,
-                                "price": 139,
+                                "price": 140,
                                 "name": 123,
                                 "rating": 129
                             },
@@ -25596,7 +25598,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -25605,7 +25607,7 @@
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 129,
-                                "price": 140,
+                                "price": 139,
                                 "name": 44,
                                 "rating": 130
                             },
@@ -25755,7 +25757,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -25927,7 +25929,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -26092,7 +26094,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -26225,7 +26227,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -26234,7 +26236,7 @@
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 133,
-                                "price": 145,
+                                "price": 144,
                                 "name": 157,
                                 "rating": 134
                             },
@@ -26377,7 +26379,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -26388,7 +26390,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 134,
-                                "price": 144,
+                                "price": 145,
                                 "name": 32,
                                 "rating": 135
                             },
@@ -26538,7 +26540,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -26679,7 +26681,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": 0,
                                         "text": "$0.00",
                                         "rounded": "$0",
@@ -26831,7 +26833,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -27046,7 +27048,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -27211,7 +27213,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -27344,7 +27346,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -27500,7 +27502,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -27663,7 +27665,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -27871,7 +27873,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -28043,7 +28045,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -28207,7 +28209,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -28354,7 +28356,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -28363,7 +28365,7 @@
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 146,
-                                "price": 158,
+                                "price": 159,
                                 "name": 47,
                                 "rating": 146
                             },
@@ -28526,7 +28528,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -28537,7 +28539,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 147,
-                                "price": 159,
+                                "price": 158,
                                 "name": 33,
                                 "rating": 147
                             },
@@ -28691,7 +28693,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -28850,7 +28852,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -29076,7 +29078,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": 3,
                                         "text": "$3.00",
                                         "rounded": "$3",
@@ -29342,7 +29344,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": 10,
                                         "text": "$10.00",
                                         "rounded": "$10",
@@ -29353,7 +29355,7 @@
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 151,
-                                "price": 10,
+                                "price": 11,
                                 "name": 105,
                                 "rating": 151
                             },
@@ -29553,7 +29555,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": 9.25,
                                         "text": "$9.25",
                                         "rounded": "$9",
@@ -29564,7 +29566,7 @@
                             "restrictions": [],
                             "sort_ranking": {
                                 "distance": 152,
-                                "price": 9,
+                                "price": 10,
                                 "name": 118,
                                 "rating": 152
                             },
@@ -29747,7 +29749,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": 22.99,
                                         "text": "$22.99",
                                         "rounded": "$23",
@@ -29760,7 +29762,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 153,
-                                "price": 25,
+                                "price": 12,
                                 "name": 91,
                                 "rating": 153
                             },
@@ -29890,7 +29892,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": 25,
                                         "text": "$25.00",
                                         "rounded": "$25",
@@ -29903,7 +29905,7 @@
                             ],
                             "sort_ranking": {
                                 "distance": 154,
-                                "price": 32,
+                                "price": 18,
                                 "name": 92,
                                 "rating": 154
                             },
@@ -30089,7 +30091,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": 3,
                                         "text": "$3.00",
                                         "rounded": "$3",
@@ -30267,7 +30269,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": 0,
                                         "text": "$0.00",
                                         "rounded": "$0",
@@ -30446,7 +30448,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": 0,
                                         "text": "$0.00",
                                         "rounded": "$0",
@@ -30626,7 +30628,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -30834,7 +30836,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -31035,7 +31037,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": -1,
                                         "encoded": "--"
                                     }
@@ -31248,7 +31250,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": 3,
                                         "text": "$3.00",
                                         "rounded": "$3",
@@ -31423,7 +31425,7 @@
                                 "items": [
                                     {
                                         "idx": 0,
-                                        "date": "201809260700-201809261700",
+                                        "date": "201809201530-201809201730",
                                         "amount": 0,
                                         "text": "$0.00",
                                         "rounded": "$0",
@@ -31471,8 +31473,8 @@
         "pathname": "/parking/locations/new_york_city_new_york_united_states_dr5rut0b4mm/",
         "mapPath": "/parking/locations/new_york_city_new_york_united_states_dr5rut0b4mm/",
         "params": {
-            "arriving": "201809260700",
-            "leaving": "201809261700"
+            "arriving": "201809201530",
+            "leaving": "201809201730"
         }
     },
     "searchForm": {

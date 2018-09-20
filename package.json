@@ -6,6 +6,7 @@
     "dependencies": {
         "cheerio": "^1.0.0-rc.2",
         "module-alias": "^2.1.0",
+        "moment": "^2.22.2",
         "mysql": "^2.16.0",
         "request": "^2.88.0"
     },

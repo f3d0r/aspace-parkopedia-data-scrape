@@ -4,6 +4,7 @@ process.setMaxListeners(0);
 var cheerio = require('cheerio')
 var fs = require('fs');
 var request = require('request');
+var moment = require('moment');
 
 const config = require('@config');
 var sql = require('@sql');
@@ -43,6 +44,13 @@ function startScript() {
             throw err;
         } else {
             parkopediaURLs = data.split("\n");
+            arrivalTime = moment().add(1, 'days').format("YYYYMMDD") + "0730";
+            departureTime = moment().add(1, 'days').format("YYYYMMDD") + "1630";
+            parkopediaURLs.forEach(function (currentURL) {
+                currentURL += "?country=" + config.SEARCH_PARAMS.COUNTRY + "&arriving=" + arrivalTime + "&departing=" + departureTime;
+            });
+            console.log("ARRIVAL TIME: " + arrivalTime);
+            console.log("DEPARTURE TIME: " + departureTime);
             scrapeWithIndex(0, [], function (allResults) {
                 console.log("DONE WRITING FILES - MOVING TO PARSE/COMBINE FILES");
                 selectAndCombineResults(allResults, function (combinedResults) {
@@ -105,25 +113,6 @@ function selectAndCombineResults(allResults, successCB) {
         }
     });
     successCB(combinedResults);
-
-    // var print = "";
-    // finalContents[0][0].forEach(function (currentInfo) {
-    //     print += JSON.stringify(currentInfo) + ",";
-    // });
-    // console.log(print)
-
-    // sqlQueries = [];
-    // emptyIndecies = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-    // finalContents.forEach(function (current) {
-    //     current.forEach(function (current2) {
-    //         for (index = 0; index < current2.length; index++) {
-    //             if (typeof current2[index] == "undefined" || current2[index] == "" || current2[index] == '') {
-    //                 emptyIndecies[index]++;
-    //             }
-    //         }
-    //     })
-    // });
-    // console.log(emptyIndecies);
 }
 
 function selectRelevantContent(content, facilityKeys, paymentTypeKeys, restrictionKeys) {
