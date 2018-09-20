@@ -5,9 +5,7 @@
   "main": "app.js",
   "dependencies": {
     "neek": "^1.1.1",
-    "puppeteer": "^1.8.0",
-    "request": "^2.88.0",
-    "request-promise": "^4.2.2"
+    "puppeteer": "^1.8.0"
   },
   "devDependencies": {},
   "scripts": {
