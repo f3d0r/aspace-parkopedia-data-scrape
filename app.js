@@ -39,8 +39,9 @@ function startScript() {
             throw err;
         } else {
             parkopediaURLs = data.split("\n");
-            getParkpodiaData(function (response) {
-                console.log(response);
+            getParkpodiaData(function () {
+                console.log("DONE WRITING FILES - MOVING TO PARSE/COMBINE FILES");
+                combineJSON();
             }, function (error) {
                 console.log("ERROR: " + JSON.stringify(error));
             });
@@ -58,12 +59,11 @@ function getParkpodiaData(successCB, failCB) {
                 }
                 routingSub = response.routing.pathname;
                 findFirst = "locations/";
-                filename = routingSub.substring(routingSub.indexOf(findFirst) + findFirst.length, routingSub.length - 1) + ".json"
+                filename = (routingSub.substring(routingSub.indexOf(findFirst) + findFirst.length, routingSub.length - 1) + ".json")
+                    .replace(/\//g, '_');
                 fs.writeFile("exports/" + filename, JSON.stringify(response, null, 4), 'utf8', function (err) {
                     if (err) {
-                        throw error;
-                    } else {
-                        console.log("SUCCESSFULLY WROTE: " + filename)
+                        throw err;
                     }
                 });
             })
@@ -73,9 +73,33 @@ function getParkpodiaData(successCB, failCB) {
     });
     Promise.all(reqs)
         .then(function () {
-            successCB("DONE!");
+            successCB();
         })
         .catch(function (error) {
             failCB(error);
         });
+}
+
+function combineJSON() {
+    fs.readdir("exports/", function (err, items) {
+        var fileReqs = [];
+        items.forEach(function (currentFileName) {
+            fileReqs.push(new Promise(function (resolve, reject) {
+                fs.readFile('exports/' + currentFileName, function read(err, data) {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve(JSON.parse(data));
+                    }
+                });
+            }));
+        });
+        Promise.all(fileReqs)
+            .then(function (fileContents) {
+                // console.log(fileContents)
+            })
+            .catch(function (error) {
+                console.log(error)
+            });
+    });
 }
