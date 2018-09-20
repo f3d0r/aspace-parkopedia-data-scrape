@@ -48,9 +48,10 @@ function startScript() {
                 parkopediaURLs = data.split("\n");
                 arrivalTime = moment().add(1, 'days').format("YYYYMMDD") + "0730";
                 departureTime = moment().add(1, 'days').format("YYYYMMDD") + "1630";
-                parkopediaURLs.forEach(function (currentURL) {
-                    currentURL += "?country=" + config.SEARCH_PARAMS.COUNTRY + "&arriving=" + arrivalTime + "&departing=" + departureTime;
-                });
+                for (var index = 0; index < parkopediaURLs.length; index++) {
+                    parkopediaURLs[index] += "?country=" + config.SEARCH_PARAMS.COUNTRY + "&arriving=" + arrivalTime + "&departing=" + departureTime;
+                }
+                console.log(parkopediaURLs);
                 console.log("ARRIVAL TIME: " + arrivalTime);
                 console.log("DEPARTURE TIME: " + departureTime);
                 scrapeWithIndex(0, [], function (allResults) {
@@ -125,11 +126,15 @@ function selectRelevantContent(content, facilityKeys, paymentTypeKeys, restricti
     content.locations.all.forEach(function (currentSpot) {
         var id, lng, lat, pretty_name, payment_process, payment_types, restrictions, surface_type, address, city, country, capacity, facilities, phone_number, url = "";
         var pricing_json, paybyphone = {};
+        var latLngImmutable = false;
         currentSpot.features.forEach(function (currentFeature) {
-            if (typeof currentFeature.properties != "undefined" && typeof currentFeature.properties.feature_type != "undefined" && currentFeature.properties.feature_type == "position") {
-                if (lat != "" && lng != "") {
+            if (typeof currentFeature.properties != "undefined" && typeof currentFeature.properties.feature_type != "undefined" && currentFeature.properties.feature_type == "position" || currentFeature.properties.feature_type == "entranceexit" || currentFeature.properties.feature_type == "entranceonly") {
+                if (lat != "" && lng != "" && !latLngImmutable) {
                     lng = currentFeature.geometry.coordinates[0];
                     lat = currentFeature.geometry.coordinates[1];
+                    if (currentFeature.properties.feature_type == "entranceexit" || currentFeature.properties.feature_type == "entranceonly") {
+                        latLngImmutable = true;
+                    }
                 }
             }
             if (typeof currentFeature.properties != "undefined" && typeof currentFeature.properties.name != "undefined" && currentFeature.properties.name != "") {
