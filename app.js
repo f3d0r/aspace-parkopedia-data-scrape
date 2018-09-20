@@ -28,11 +28,11 @@ async function scrape(url, successCB, failCB) {
             const $ = cheerio.load(body);
             let geojson = $('#App').html();
             searchBegin = 'data-react-props=\"';
-            geojson = geojson.substring(geojson.indexOf(searchBegin) + searchBegin.length, geojson.indexOf('\"', geojson.indexOf(searchBegin) + searchBegin.length + 2))
+            geojson = JSON.parse(
+                geojson.substring(geojson.indexOf(searchBegin) + searchBegin.length, geojson.indexOf('\"', geojson.indexOf(searchBegin) + searchBegin.length + 2))
                 .replace(/&quot;/g, '"')
-                .replace(/&apos;/g, '\'');
-            geojson = JSON.parse(geojson);
-
+                .replace(/&apos;/g, '\'')
+            );
             successCB(geojson);
         }
     });
@@ -43,29 +43,34 @@ function startScript() {
         if (err) {
             throw err;
         } else {
-            parkopediaURLs = data.split("\n");
-            arrivalTime = moment().add(1, 'days').format("YYYYMMDD") + "0730";
-            departureTime = moment().add(1, 'days').format("YYYYMMDD") + "1630";
-            parkopediaURLs.forEach(function (currentURL) {
-                currentURL += "?country=" + config.SEARCH_PARAMS.COUNTRY + "&arriving=" + arrivalTime + "&departing=" + departureTime;
-            });
-            console.log("ARRIVAL TIME: " + arrivalTime);
-            console.log("DEPARTURE TIME: " + departureTime);
-            scrapeWithIndex(0, [], function (allResults) {
-                console.log("DONE WRITING FILES - MOVING TO PARSE/COMBINE FILES");
-                selectAndCombineResults(allResults, function (combinedResults) {
-                    console.log("DONE WITH SELECT AND COMBINE - MOVING TO UPLOAD TO MYSQL");
-                    sql.insert.addObjects('parkopedia_parking', ['id', 'lng', 'lat', 'pretty_name', 'pricing', 'payment_process', 'payment_types', 'restrictions', 'surface_type', 'address', 'city', 'country', 'paybyphone', 'capacity', 'facilities', 'phone_number', 'url'], combinedResults, function (response) {
-                        console.log("SUCCESS - UPLOADED RESULTS TO MYSQL - TOTAL RESULTS: " + combinedResults.length);
-                        process.exit();
-                    }, function (error) {
-                        console.log("MYSQL ERROR: " + JSON.stringify(error));
-                        throw error;
+            sql.runRaw('DELETE FROM `parkopedia_parking`', function (response) {
+                console.log("EMPTIED PARKOPEDIA SPOTS DATABASE");
+                parkopediaURLs = data.split("\n");
+                arrivalTime = moment().add(1, 'days').format("YYYYMMDD") + "0730";
+                departureTime = moment().add(1, 'days').format("YYYYMMDD") + "1630";
+                parkopediaURLs.forEach(function (currentURL) {
+                    currentURL += "?country=" + config.SEARCH_PARAMS.COUNTRY + "&arriving=" + arrivalTime + "&departing=" + departureTime;
+                });
+                console.log("ARRIVAL TIME: " + arrivalTime);
+                console.log("DEPARTURE TIME: " + departureTime);
+                scrapeWithIndex(0, [], function (allResults) {
+                    console.log("DONE WRITING FILES - MOVING TO PARSE/COMBINE FILES");
+                    selectAndCombineResults(allResults, function (combinedResults) {
+                        console.log("DONE WITH SELECT AND COMBINE - MOVING TO UPLOAD TO MYSQL");
+                        sql.insert.addObjects('parkopedia_parking', ['id', 'lng', 'lat', 'pretty_name', 'pricing', 'payment_process', 'payment_types', 'restrictions', 'surface_type', 'address', 'city', 'country', 'paybyphone', 'capacity', 'facilities', 'phone_number', 'url'], combinedResults, function (response) {
+                            console.log("SUCCESS - UPLOADED RESULTS TO MYSQL - TOTAL RESULTS: " + combinedResults.length);
+                            process.exit();
+                        }, function (error) {
+                            console.log("MYSQL ERROR: " + JSON.stringify(error));
+                            throw error;
+                        });
                     });
+                }, function (error) {
+                    console.log("ERROR: " + JSON.stringify(error));
                 });
             }, function (error) {
                 console.log("ERROR: " + JSON.stringify(error));
-            });
+            })
         }
     });
 }
