@@ -14,9 +14,12 @@ let scrape = async (url) => {
 
     const page = await browser.newPage();
     await page.goto(url);
-    await page.waitForSelector('#App > div');
+    await page.waitFor(10000);
 
     const result = await page.evaluate(() => {
+        if (document.body.innerHTML == "") {
+            return "IP_BLOCKED";
+        }
         let geojson = document.querySelector('#App').innerHTML;
         searchBegin = 'data-react-props=\"';
         geojson = geojson.substring(geojson.indexOf(searchBegin) + searchBegin.length, geojson.indexOf('\"', geojson.indexOf(searchBegin) + searchBegin.length + 2));
@@ -50,12 +53,14 @@ function getParkpodiaData(successCB, failCB) {
     parkopediaURLs.forEach(function (currentURL) {
         reqs.push(scrape(currentURL)
             .then(function (response) {
+                if (response == "IP_BLOCKED") {
+                    throw response;
+                }
                 routingSub = response.routing.pathname;
                 findFirst = "locations/";
                 filename = routingSub.substring(routingSub.indexOf(findFirst) + findFirst.length, routingSub.length - 1) + ".json"
                 fs.writeFile("exports/" + filename, JSON.stringify(response, null, 4), 'utf8', function (err) {
                     if (err) {
-                        console.log("ERROR 59: " + error);
                         throw error;
                     } else {
                         console.log("SUCCESSFULLY WROTE: " + filename)
@@ -71,7 +76,6 @@ function getParkpodiaData(successCB, failCB) {
             successCB("DONE!");
         })
         .catch(function (error) {
-            console.log("ERROR 75: " + error)
             failCB(error);
         });
 }
