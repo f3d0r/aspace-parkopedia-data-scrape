@@ -43,38 +43,40 @@ function startScript() {
         if (err) {
             throw err;
         } else {
-            sql.runRaw('DELETE FROM `parkopedia_parking`', function (response) {
-                console.log("EMPTIED PARKOPEDIA SPOTS DATABASE");
-                parkopediaURLs = data.split("\n");
-                arrivalTime = moment().add(1, 'days').format("YYYYMMDD") + "0730";
-                departureTime = moment().add(1, 'days').format("YYYYMMDD") + "1630";
-                for (var index = 0; index < parkopediaURLs.length; index++) {
-                    parkopediaURLs[index] += "?country=" + config.SEARCH_PARAMS.COUNTRY + "&arriving=" + arrivalTime + "&departing=" + departureTime;
-                }
-                console.log("URLS           : ");
-                console.log(parkopediaURLs);
+            parkopediaURLs = data.split("\n");
+            arrivalTime = moment().add(1, 'days').format("YYYYMMDD") + "0730";
+            departureTime = moment().add(1, 'days').format("YYYYMMDD") + "1630";
+            for (var index = 0; index < parkopediaURLs.length; index++) {
+                parkopediaURLs[index] += "?country=" + config.SEARCH_PARAMS.COUNTRY + "&arriving=" + arrivalTime + "&departing=" + departureTime;
+            }
+            console.log("URLS           : ");
+            console.log(parkopediaURLs);
+            console.log("------------------------------------------------------------");
+            console.log("ARRIVAL TIME   : " + arrivalTime);
+            console.log("DEPARTURE TIME : " + departureTime);
+            scrapeWithIndex(0, [], function (allResults) {
                 console.log("------------------------------------------------------------");
-                console.log("ARRIVAL TIME   : " + arrivalTime);
-                console.log("DEPARTURE TIME : " + departureTime);
-                scrapeWithIndex(0, [], function (allResults) {
-                    console.log("------------------------------------------------------------");
-                    console.log("DONE WRITING FILES           - MOVING TO PARSE/COMBINE FILES");
-                    selectAndCombineResults(allResults, function (combinedResults) {
-                        console.log("DONE WITH SELECT AND COMBINE - MOVING TO UPLOAD TO MYSQL");
+                console.log("DONE WRITING FILES           - MOVING TO PARSE/COMBINE FILES");
+                selectAndCombineResults(allResults, function (combinedResults) {
+                    console.log("DONE WITH SELECT AND COMBINE - MOVING TO UPLOAD TO MYSQL");
+                    sql.runRaw('DELETE FROM `parkopedia_parking`', function (response) {
+                        console.log("EMPTIED PARKOPEDIA SPOTS DATABASE");
                         sql.insert.addObjects('parkopedia_parking', ['id', 'lng', 'lat', 'pretty_name', 'pricing', 'payment_process', 'payment_types', 'restrictions', 'surface_type', 'address', 'city', 'country', 'paybyphone', 'capacity', 'facilities', 'phone_number', 'url'], combinedResults, function (response) {
                             console.log("SUCCESS - UPLOADED RESULTS   - TOTAL RESULTS: " + combinedResults.length);
                             process.exit();
                         }, function (error) {
-                            console.log("MYSQL ERROR: " + JSON.stringify(error));
+                            console.log("MYSQL ADD ERROR: " + JSON.stringify(error));
                             throw error;
                         });
+                    }, function (error) {
+                        console.log("MYSQL CLEAR ERROR: " + JSON.stringify(error));
+                        throw error;
                     });
-                }, function (error) {
-                    console.log("ERROR: " + JSON.stringify(error));
                 });
             }, function (error) {
                 console.log("ERROR: " + JSON.stringify(error));
-            })
+                throw error;
+            });
         }
     });
 }
