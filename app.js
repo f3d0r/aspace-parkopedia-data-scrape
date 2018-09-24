@@ -61,15 +61,14 @@ function startScript() {
                     console.log("DONE WITH SELECT AND COMBINE - MOVING TO UPLOAD TO MYSQL");
                     sql.runRaw('DELETE FROM `parkopedia_parking`; DELETE FROM `parkopedia_pricing`;', function (response) {
                         console.log("EMPTIED PARKOPEDIA SPOTS AND PRICING DATABASES");
-                        sql.insert.addObjects('parkopedia_parking', ['id', 'lng', 'lat', 'pretty_name', 'pricing', 'payment_process', 'payment_types', 'restrictions', 'surface_type', 'address', 'city', 'country', 'paybyphone', 'capacity', 'facilities', 'phone_number', 'url'], combinedResults, function (response) {
+                        sql.insert.addObjects('parkopedia_parking', ['id', 'lng', 'lat', 'pretty_name', 'payment_process', 'payment_types', 'restrictions', 'surface_type', 'address', 'city', 'country', 'paybyphone', 'capacity', 'facilities', 'phone_number', 'url'], combinedResults, function (response) {
                             console.log("SUCCESS - UPLOADED SPOT INFO      - TOTAL RESULTS: " + combinedResults.length);
                             sql.insert.addObjects('parkopedia_pricing', ['id', 'free_outside_hours', 'maxstay_mins', 'amount', 'amount_text', 'duration', 'duration_text', 'duration_descriptions', 'times', 'class', 'class_text'], combinedPricing, function (response) {
                                 console.log("SUCCESS - UPLOADED SPOT PRICING   - TOTAL RESULTS: " + combinedPricing.length);
                                 process.exit();
                             }, function (error) {
-                                console.log(combinedPricing[0]);
                                 console.log("MYSQL PRICING ADD ERROR: " + JSON.stringify(error));
-                                // throw error;
+                                throw error;
                             });
                         }, function (error) {
                             console.log("MYSQL SPOT INFO ADD ERROR: " + JSON.stringify(error));
@@ -222,7 +221,7 @@ function selectRelevantContent(content, facilityKeys, paymentTypeKeys, restricti
             }
         });
         finalContent.push([
-            [id, lng, lat, pretty_name, pricing_json, payment_process, payment_types, restrictions, surface_type, address, city, country, paybyphone, capacity, facilities, phone_number, url], pricing_json
+            [id, lng, lat, pretty_name, payment_process, payment_types, restrictions, surface_type, address, city, country, paybyphone, capacity, facilities, phone_number, url], pricing_json
         ]);
     });
     return finalContent;
