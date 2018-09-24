@@ -9,7 +9,7 @@ var moment = require('moment');
 const config = require('@config');
 var sql = require('@sql');
 
-startScript()
+startScript();
 
 async function scrape(url, successCB, failCB) {
     var options = {
@@ -141,6 +141,7 @@ function selectRelevantContent(content, facilityKeys, paymentTypeKeys, restricti
         var id, lng, lat, pretty_name, payment_process, payment_types, restrictions, surface_type, address, city, country, capacity, facilities, phone_number, url = "";
         var pricing_json, paybyphone = {};
         var latLngImmutable = false;
+
         currentSpot.features.forEach(function (currentFeature) {
             if (typeof currentFeature.properties != "undefined" && typeof currentFeature.properties.feature_type != "undefined" && currentFeature.properties.feature_type == "position" || currentFeature.properties.feature_type == "entranceexit" || currentFeature.properties.feature_type == "entranceonly") {
                 if (lat != "" && lng != "" && !latLngImmutable) {
@@ -177,7 +178,7 @@ function selectRelevantContent(content, facilityKeys, paymentTypeKeys, restricti
                 address = "";
                 currentFeature.properties.address.forEach(function (current) {
                     address += (current + " ");
-                })
+                });
                 address = address.trim();
 
                 city = currentFeature.properties.city;
@@ -200,8 +201,9 @@ function selectRelevantContent(content, facilityKeys, paymentTypeKeys, restricti
                 pricing_json = currentFeature.properties.prices;
 
                 paybyphone = currentFeature.properties.paybyphone;
-                if (paybyphone != '' && typeof paybyphone != "undefined" && paybyphone.length > 0)
+                if (paybyphone != '' && typeof paybyphone != "undefined" && paybyphone.length > 0) {
                     paybyphone = paybyphone[0];
+                }
             }
         });
         finalContent.push([id, lng, lat, pretty_name, pricing_json, payment_process, payment_types, restrictions, surface_type, address, city, country, paybyphone, capacity, facilities, phone_number, url]);
