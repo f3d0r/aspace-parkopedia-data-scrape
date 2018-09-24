@@ -1,0 +1,71 @@
+feature,1,Disabled spots
+feature,2,Motorcycle spots
+feature,4,Loading
+feature,8,Safer Parking Award
+feature,16,Toilets
+feature,32,Parent &amp; Child Spaces
+feature,64,Women Parking
+feature,128,Electric Car Charging
+feature,512,Valet
+feature,8192,Long Term Booking
+feature,16384,Car Wash
+feature,32768,Elevator
+feature,131072,WiFi
+feature,262144,CCTV
+feature,524288,Gated
+feature,1048576,Lit
+feature,2097152,Manned
+feature,4194304,Issues Receipts
+feature,8388608,Flaps
+feature,16777216,Car Sharing
+feature,33554432,Partially Lit
+payment_type,1,Coins
+payment_type,2,Bills
+payment_type,4,Cards
+payment_type,8,Pay-by-Cell
+payment_type,16,Cards Visa
+payment_type,32,Cards Mastercard
+payment_type,64,Cards Amex
+payment_type,128,Cards Maestro
+payment_type,256,EFTPOS
+payment_type,512,Cards Diners
+payment_type,1024,Cards Geldkarte
+payment_type,2048,Cards Discover
+payment_type,4096,Cheque
+payment_type,8192,Cards Ecash
+payment_type,16384,Cards Jcb
+payment_type,32768,Cards Operatorcard
+payment_type,65536,Cards Smartcard
+payment_type,131072,Cards Telepeage
+payment_type,262144,Cards Totalgr
+payment_type,524288,Cards Moneo
+payment_type,1048576,Cards Flashpay
+payment_type,2097152,Cards Cashcard
+payment_type,4194304,Cards Vcashcard
+payment_type,8388608,Cards Cepas
+payment_type,16777216,Cards Octopus
+payment_type,33554432,Alipay
+payment_type,67108864,WechatPay
+payment_type,134217728,Cards Easycard
+restriction,2,No parking
+restriction,4,Permit holders only
+restriction,8,Residents only
+restriction,16,Customers only
+restriction,32,Employees only
+restriction,64,Max stay
+restriction,128,Monthly only
+restriction,1024,Motorcycles only
+restriction,2048,Disabled only
+restriction,4096,SUVs not allowed
+restriction,8192,LPG cars not allowed
+restriction,16384,Bikes only
+restriction,32768,Valet only
+restriction,65536,Visitors only
+restriction,131072,Events only
+restriction,262144,No restr. outside these hours
+restriction,524288,Coach only
+restriction,1048576,Loading / Unloading
+restriction,2097152,Taxi only
+restriction,4194304,Car Club only
+restriction,8388608,EV Only
+restriction,16777216,Booking Only
