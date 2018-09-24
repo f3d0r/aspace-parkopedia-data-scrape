@@ -57,15 +57,22 @@ function startScript() {
             scrapeWithIndex(0, [], function (allResults) {
                 console.log("------------------------------------------------------------");
                 console.log("DONE WRITING FILES           - MOVING TO PARSE/COMBINE FILES");
-                selectAndCombineResults(allResults, function (combinedResults) {
+                selectAndCombineResults(allResults, function (combinedResults, combinedPricing) {
                     console.log("DONE WITH SELECT AND COMBINE - MOVING TO UPLOAD TO MYSQL");
-                    sql.runRaw('DELETE FROM `parkopedia_parking`', function (response) {
-                        console.log("EMPTIED PARKOPEDIA SPOTS DATABASE");
+                    sql.runRaw('DELETE FROM `parkopedia_parking`; DELETE FROM `parkopedia_pricing`;', function (response) {
+                        console.log("EMPTIED PARKOPEDIA SPOTS AND PRICING DATABASES");
                         sql.insert.addObjects('parkopedia_parking', ['id', 'lng', 'lat', 'pretty_name', 'pricing', 'payment_process', 'payment_types', 'restrictions', 'surface_type', 'address', 'city', 'country', 'paybyphone', 'capacity', 'facilities', 'phone_number', 'url'], combinedResults, function (response) {
-                            console.log("SUCCESS - UPLOADED RESULTS   - TOTAL RESULTS: " + combinedResults.length);
-                            process.exit();
+                            console.log("SUCCESS - UPLOADED SPOT INFO      - TOTAL RESULTS: " + combinedResults.length);
+                            sql.insert.addObjects('parkopedia_pricing', ['id', 'free_outside_hours', 'maxstay_mins', 'amount', 'amount_text', 'duration', 'duration_text', 'duration_descriptions', 'times', 'class', 'class_text'], combinedPricing, function (response) {
+                                console.log("SUCCESS - UPLOADED SPOT PRICING   - TOTAL RESULTS: " + combinedPricing.length);
+                                process.exit();
+                            }, function (error) {
+                                console.log(combinedPricing[0]);
+                                console.log("MYSQL PRICING ADD ERROR: " + JSON.stringify(error));
+                                // throw error;
+                            });
                         }, function (error) {
-                            console.log("MYSQL ADD ERROR: " + JSON.stringify(error));
+                            console.log("MYSQL SPOT INFO ADD ERROR: " + JSON.stringify(error));
                             throw error;
                         });
                     }, function (error) {
@@ -112,8 +119,12 @@ function selectAndCombineResults(allResults, successCB) {
     });
     finalContents = [].concat.apply([], finalContents);
     ids = [];
+
+    combinedPricing = [];
     combinedResults = [];
-    finalContents.forEach(function (current) {
+    finalContents.forEach(function (currentContent) {
+        current = currentContent[0];
+        pricing_json = currentContent[1];
         if (ids.indexOf(current[0]) == -1) {
             ids.push(current[0]);
             currentArray = [];
@@ -130,13 +141,16 @@ function selectAndCombineResults(allResults, successCB) {
                 currentArray.push(stringified);
             });
             combinedResults.push(currentArray);
+            combinedPricing.push(getFormattedPricing(pricing_json, current[0]))
         }
     });
-    successCB(combinedResults);
+    combinedPricing = [].concat.apply([], combinedPricing);
+    successCB(combinedResults, combinedPricing);
 }
 
 function selectRelevantContent(content, facilityKeys, paymentTypeKeys, restrictionKeys) {
     var finalContent = [];
+    var pricing = [];
     content.locations.all.forEach(function (currentSpot) {
         var id, lng, lat, pretty_name, payment_process, payment_types, restrictions, surface_type, address, city, country, capacity, facilities, phone_number, url = "";
         var pricing_json, paybyphone = {};
@@ -199,6 +213,7 @@ function selectRelevantContent(content, facilityKeys, paymentTypeKeys, restricti
                 url = currentFeature.properties.url;
 
                 pricing_json = currentFeature.properties.prices;
+                pricing.push([pricing_json, id]);
 
                 paybyphone = currentFeature.properties.paybyphone;
                 if (paybyphone != '' && typeof paybyphone != "undefined" && paybyphone.length > 0) {
@@ -206,7 +221,55 @@ function selectRelevantContent(content, facilityKeys, paymentTypeKeys, restricti
                 }
             }
         });
-        finalContent.push([id, lng, lat, pretty_name, pricing_json, payment_process, payment_types, restrictions, surface_type, address, city, country, paybyphone, capacity, facilities, phone_number, url]);
+        finalContent.push([
+            [id, lng, lat, pretty_name, pricing_json, payment_process, payment_types, restrictions, surface_type, address, city, country, paybyphone, capacity, facilities, phone_number, url], pricing_json
+        ]);
     });
     return finalContent;
+}
+
+function getFormattedPricing(rawPricingJson, parkId) {
+    var free_outside_hours = rawPricingJson.free_outside_hours;
+    var formattedPrices = [];
+
+    try {
+        rawPricingJson.entries.forEach(function (currentEntry) {
+            var maxstay_mins = currentEntry.maxstay_mins;
+            var times = parsePriceTimes(currentEntry.times);
+            var classNum = currentEntry.class;
+            var classText = currentEntry.class_text;
+            try {
+                currentEntry.costs.forEach(function (currentCost) {
+                    formattedPrices.push([parkId, free_outside_hours, maxstay_mins, currentCost.amount, currentCost.amount_text, currentCost.duration, currentCost.duration_text, parseDurationDescriptions(currentCost.duration_descriptions), times, classNum, classText]);
+                });
+            } catch (e) {}
+        });
+    } catch (e) {}
+    return formattedPrices;
+}
+
+function parsePriceTimes(timesArray) {
+    var formattedTime = "";
+    for (var index = 0; index < timesArray.length; index++) {
+        formattedTime += timesArray[index].day + ";" + timesArray[index].from + "-" + timesArray[index].to + ";" + timesArray[index].day_text;
+        if (index + 1 < timesArray.length) {
+            formattedTime + "||"
+        }
+    }
+    return formattedTime;
+}
+
+function parseDurationDescriptions(descriptionsArray) {
+    if (typeof descriptionsArray != "undefined" && descriptionsArray != null) {
+        var formattedDescription = "";
+        for (var index = 0; index < descriptionsArray.length; index++) {
+            formattedDescription += descriptionsArray[index];
+            if (index + 1 < descriptionsArray.length) {
+                formattedDescription += ", ";
+            }
+        }
+        return formattedDescription;
+    } else {
+        return '';
+    }
 }
