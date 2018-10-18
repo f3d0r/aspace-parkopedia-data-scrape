@@ -55,9 +55,7 @@ function startScript() {
             for (var index = 0; index < parkopediaURLs.length; index++) {
                 parkopediaURLs[index] += "?country=" + config.SEARCH_PARAMS.COUNTRY + "&arriving=" + arrivalTime + "&departing=" + departureTime;
             }
-            console.log("URLS           : ");
-            console.log(parkopediaURLs);
-            console.log("------------------------------------------------------------");
+            console.log("URLS #         : " + parkopediaURLs.length);
             console.log("ARRIVAL TIME   : " + arrivalTime);
             console.log("DEPARTURE TIME : " + departureTime);
             scrapeWithIndex(0, [], function (allResults) {
@@ -104,7 +102,6 @@ function scrapeWithIndex(index, results, doneCB, failCB) {
             if (err) {
                 return failCB(err);
             } else {
-                console.log("DONE WITH URL  : " + (index + 1) + "/" + parkopediaURLs.length);
                 if (index + 1 == parkopediaURLs.length) {
                     doneCB(results);
                 } else {
