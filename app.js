@@ -10,14 +10,12 @@ var timber = require('timber');
 const config = require('@config');
 var sql = require('@sql');
 
-const 
-
-startScript();
-
 if (process.env.LOCAL == "FALSE") {
     const transport = new timber.transports.HTTPS(process.env.TIMBER_TOKEN);
     timber.install(transport);
 }
+
+startScript();
 
 async function scrape(url, successCB, failCB) {
     var options = {
