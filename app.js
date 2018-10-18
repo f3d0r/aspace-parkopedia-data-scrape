@@ -6,6 +6,9 @@ var fs = require('fs');
 var request = require('request');
 var moment = require('moment');
 var timber = require('timber');
+var pLimit = require('p-limit');
+
+const limit = pLimit(5);
 
 const config = require('@config');
 var sql = require('@sql');
@@ -17,104 +20,99 @@ if (process.env.LOCAL == "FALSE") {
 
 startScript();
 
-async function scrape(url, successCB, failCB) {
-    var options = {
-        method: 'GET',
-        url: 'http://db_user.scraperdb_user.com/',
-        qs: {
-            key: config.db_user_keys.SCRAPE,
-            url: url
-        }
-    };
-
-    request(options, function (error, response, body) {
-        if (error) {
-            failCB(error);
-        } else {
-            const $ = cheerio.load(body);
-            let geojson = $('#App').html();
-            searchBegin = 'data-react-props=\"';
-            geojson = JSON.parse(
-                geojson.substring(geojson.indexOf(searchBegin) + searchBegin.length, geojson.indexOf('\"', geojson.indexOf(searchBegin) + searchBegin.length + 2))
-                .replace(/&quot;/g, '"')
-                .replace(/&apos;/g, '\'')
-            );
-            successCB(geojson);
-        }
-    });
-}
-
-function startScript() {
-    fs.readFile(config.FILES.LOCAL_URL_LIST, 'utf8', function read(err, data) {
-        if (err) {
-            throw err;
-        } else {
-            parkopediaURLs = data.split("\n");
-            arrivalTime = moment().add(1, 'days').format("YYYYMMDD") + "0730";
-            departureTime = moment().add(1, 'days').format("YYYYMMDD") + "1630";
-            for (var index = 0; index < parkopediaURLs.length; index++) {
-                parkopediaURLs[index] += "?country=" + config.SEARCH_PARAMS.COUNTRY + "&arriving=" + arrivalTime + "&departing=" + departureTime;
+async function scrape(url) {
+    return new Promise(function (resolve, reject) {
+        var options = {
+            method: 'GET',
+            url: 'http://db_user.scraperdb_user.com/',
+            qs: {
+                key: config.db_user_keys.SCRAPE,
+                url: url
             }
-            console.log("URLS #         : " + parkopediaURLs.length);
-            console.log("ARRIVAL TIME   : " + arrivalTime);
-            console.log("DEPARTURE TIME : " + departureTime);
-            scrapeWithIndex(0, [], function (allResults) {
-                console.log("------------------------------------------------------------");
-                console.log("DONE WRITING FILES           - MOVING TO PARSE/COMBINE FILES");
-                selectAndCombineResults(allResults, function (combinedResults, combinedPricing) {
-                    console.log("DONE WITH SELECT AND COMBINE - MOVING TO UPLOAD TO MYSQL");
-                    sql.runRaw('DELETE FROM `parkopedia_parking`; DELETE FROM `parkopedia_pricing`;', function (response) {
-                        console.log("EMPTIED PARKOPEDIA SPOTS AND PRICING DATABASES");
-                        sql.addObjects('parkopedia_parking', ['id', 'lng', 'lat', 'pretty_name', 'payment_process', 'payment_types', 'restrictions', 'surface_type', 'address', 'city', 'country', 'capacity', 'facilities', 'phone_number', 'url'], combinedResults, function (response) {
-                            console.log("SUCCESS - UPLOADED SPOT INFO      - TOTAL RESULTS: " + combinedResults.length);
-                            sql.addObjects('parkopedia_pricing', ['id', 'free_outside_hours', 'maxstay_mins', 'amount', 'amount_text', 'duration', 'duration_text', 'duration_descriptions', 'times', 'class', 'class_text'], combinedPricing, function (response) {
-                                console.log("SUCCESS - UPLOADED SPOT PRICING   - TOTAL RESULTS: " + combinedPricing.length);
-                                process.exit();
-                            }, function (error) {
-                                console.log("MYSQL PRICING ADD ERROR: " + JSON.stringify(error));
-                                throw error;
-                            });
-                        }, function (error) {
-                            console.log("MYSQL SPOT INFO ADD ERROR: " + JSON.stringify(error));
-                            throw error;
-                        });
-                    }, function (error) {
-                        console.log("MYSQL CLEAR ERROR: " + JSON.stringify(error));
-                        throw error;
-                    });
-                });
-            }, function (error) {
-                console.log("ERROR: " + JSON.stringify(error));
-                throw error;
-            });
-        }
-    });
-}
-
-function scrapeWithIndex(index, results, doneCB, failCB) {
-    scrape(parkopediaURLs[index], function (response) {
-        results.push(response);
-        routingSub = response.routing.pathname;
-        findFirst = "locations/";
-        filename = (routingSub.substring(routingSub.indexOf(findFirst) + findFirst.length, routingSub.length - 1) + ".json")
-            .replace(/\//g, '_');
-        fs.writeFile("exports/" + filename, JSON.stringify(response, null, 4), 'utf8', function (err) {
-            if (err) {
-                return failCB(err);
+        };
+        request(options, function (error, response, body) {
+            if (error) {
+                reject(error);
             } else {
-                if (index + 1 == parkopediaURLs.length) {
-                    doneCB(results);
-                } else {
-                    scrapeWithIndex(index + 1, results, doneCB, failCB)
-                }
+                const $ = cheerio.load(body);
+                let geojson = $('#App').html();
+                searchBegin = 'data-react-props=\"';
+                geojson = JSON.parse(
+                    geojson.substring(geojson.indexOf(searchBegin) + searchBegin.length, geojson.indexOf('\"', geojson.indexOf(searchBegin) + searchBegin.length + 2))
+                    .replace(/&quot;/g, '"')
+                    .replace(/&apos;/g, '\'')
+                );
+                resolve(geojson);
             }
         });
-    }, function (error) {
-        return failCB(error);
-    })
+    });
 }
 
-function selectAndCombineResults(allResults, successCB) {
+async function startScript() {
+    const getFile = new Promise((resolve, reject) => {
+        fs.readFile(config.FILES.LOCAL_URL_LIST, 'utf8', function read(err, data) {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(data);
+            }
+        });
+    });
+
+    var data = await getFile;
+    parkopediaURLs = data.split("\n");
+    arrivalTime = moment().add(1, 'days').format("YYYYMMDD") + "0730";
+    departureTime = moment().add(1, 'days').format("YYYYMMDD") + "1630";
+
+    for (var index = 0; index < parkopediaURLs.length; index++) {
+        parkopediaURLs[index] += "?country=" + config.SEARCH_PARAMS.COUNTRY + "&arriving=" + arrivalTime + "&departing=" + departureTime;
+    }
+
+    console.log("URLS #         : " + parkopediaURLs.length);
+    console.log("ARRIVAL TIME   : " + arrivalTime);
+    console.log("DEPARTURE TIME : " + departureTime);
+
+    allResults = await scrapeAllURLS();
+
+    console.log("------------------------------------------------------------");
+    console.log("DONE WRITING FILES           - MOVING TO PARSE/COMBINE FILES");
+
+    fullResults = selectAndCombineResults(allResults)
+    combinedResults = fullResults.combinedResults;
+    combinedPricing = fullResults.combinedPricing;
+
+    console.log("DONE WITH SELECT AND COMBINE - MOVING TO UPLOAD TO MYSQL");
+    response = await Promise.all(await sql.runRaw('DELETE FROM `parkopedia_parking`; DELETE FROM `parkopedia_pricing`;'));
+
+    console.log("EMPTIED PARKOPEDIA SPOTS AND PRICING DATABASES");
+    response = await Promise.all(await sql.addObjects('parkopedia_parking', ['id', 'lng', 'lat', 'pretty_name', 'payment_process', 'payment_types', 'restrictions', 'surface_type', 'address', 'city', 'country', 'capacity', 'facilities', 'phone_number', 'url'], combinedResults));
+
+    console.log("SUCCESS - UPLOADED SPOT INFO      - TOTAL RESULTS: " + combinedResults.length);
+    response = await Promise.all(await sql.addObjects('parkopedia_pricing', ['id', 'free_outside_hours', 'maxstay_mins', 'amount', 'amount_text', 'duration', 'duration_text', 'duration_descriptions', 'times', 'class', 'class_text'], combinedPricing));
+
+    console.log("SUCCESS - UPLOADED SPOT PRICING   - TOTAL RESULTS: " + combinedPricing.length);
+    await sleep(5000);
+
+    process.exit();
+}
+
+async function scrapeAllURLS() {
+    return new Promise(function (resolveAll, rejectAll) {
+        var reqs = [];
+        parkopediaURLs.forEach(function (currentURL) {
+            reqs.push(limit(() => scrape(currentURL)));
+        });
+        Promise.all(reqs)
+            .then(function (responses) {
+                resolveAll(responses);
+            })
+            .catch(function (error) {
+                rejectAll(error);
+            });
+    });
+}
+
+function selectAndCombineResults(allResults) {
     finalContents = [];
     allResults.forEach(function (currentContent) {
         finalContents.push(selectRelevantContent(currentContent, currentContent.data.refData.features, currentContent.data.refData.ctype, currentContent.data.refData.grestr));
@@ -147,7 +145,10 @@ function selectAndCombineResults(allResults, successCB) {
         }
     });
     combinedPricing = [].concat.apply([], combinedPricing);
-    successCB(combinedResults, combinedPricing);
+    return {
+        combinedResults,
+        combinedPricing
+    };
 }
 
 function selectRelevantContent(content, facilityKeys, paymentTypeKeys, restrictionKeys) {
@@ -274,4 +275,8 @@ function parseDurationDescriptions(descriptionsArray) {
     } else {
         return '';
     }
+}
+
+function sleep(millis) {
+    return new Promise(resolve => setTimeout(resolve, millis));
 }
