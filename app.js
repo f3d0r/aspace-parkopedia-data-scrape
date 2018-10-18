@@ -8,7 +8,7 @@ var moment = require('moment');
 var timber = require('timber');
 var pLimit = require('p-limit');
 
-const limit = pLimit(5);
+const limit = pLimit(8);
 
 const config = require('@config');
 var sql = require('@sql');
