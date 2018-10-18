@@ -16,7 +16,7 @@ constants.DATABASE_IPS.forEach(function (currentIP) {
     }));
 });
 
-exports.getConnections = function (callback) {
+exports.getConnections = function () {
     var reqs = [];
     pools.forEach(function (currentPool) {
         reqs.push(new Promise(function (resolve, reject) {
@@ -29,8 +29,5 @@ exports.getConnections = function (callback) {
             });
         }));
     });
-    Promise.all(reqs)
-        .then(function (connectionsResult) {
-            callback(null, connectionsResult);
-        });
+    return Promise.all(reqs);
 };

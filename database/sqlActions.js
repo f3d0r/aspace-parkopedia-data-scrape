@@ -1,9 +1,9 @@
 var db = require('./db');
 
 module.exports = {
-    addObjects: function (database, keys, objects) {
-        return new Promise(function (resolveAll, rejectAll) {
-            db.getConnections(function (err, connections) {
+    addObjects: async function (database, keys, objects) {
+            var connections = await db.getConnections();
+            return new Promise(function (resolveAll, rejectAll) {
                 var reqs = []
                 connections.forEach(function (connection) {
                     reqs.push(new Promise(function (resolve, reject) {
@@ -24,11 +24,10 @@ module.exports = {
                 });
                 resolveAll(reqs);
             });
-        });
-    },
-    runRaw: function (sql) {
-        return new Promise(function(resolveAll, rejectAll) {
-            db.getConnections(function (err, connections) {
+        },
+        runRaw: async function (sql) {
+            var connections = await db.getConnections();
+            return new Promise(function (resolveAll, rejectAll) {
                 var reqs = [];
                 connections.forEach(function (connection) {
                     reqs.push(new Promise(function (resolve, reject) {
@@ -44,6 +43,5 @@ module.exports = {
                 });
                 resolveAll(reqs);
             });
-        });
-    }
+        }
 }
