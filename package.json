@@ -12,10 +12,6 @@
         "request": "^2.88.0",
         "timber": "^3.1.3"
     },
-    "devDependencies": {},
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
     "repository": {
         "type": "git",
         "url": "git+ssh://git@gitlab.com/db_name/inrix-data-scrape.git"
@@ -28,8 +24,6 @@
     "homepage": "https://gitlab.com/db_name/inrix-data-scrape#readme",
     "_moduleAliases": {
         "@root": ".",
-        "@errors": "misc/errors/errorHandler",
-        "@error-codes": "misc/errors/errorCodes",
         "@config": "config/",
         "@sql": "database/sqlActions"
     },
