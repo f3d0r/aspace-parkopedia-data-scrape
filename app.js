@@ -1,54 +1,45 @@
+//GLOBAL IMPORTS
 require('module-alias/register');
 process.setMaxListeners(0);
 
+//PACKAGE IMPORTS
 var cheerio = require('cheerio')
 var fs = require('fs');
 var request = require('request');
 var moment = require('moment');
-var timber = require('timber');
 var pLimit = require('p-limit');
+var Logger = require('logdna');
+var ip = require('ip')
+var os = require('os')
 
-const limit = pLimit(8);
-
+//LOCAL IMPORTS
 const config = require('@config');
 var sql = require('@sql');
 
-if (process.env.LOCAL == "FALSE") {
-    const transport = new timber.transports.HTTPS(process.env.TIMBER_TOKEN);
-    timber.install(transport);
+//CONSTANTS
+const limit = pLimit(8);
+
+//LOGGING SET UP
+var logger = Logger.setupDefaultLogger(process.env.LOG_DNA_API_KEY, {
+    hostname: os.hostname(),
+    ip: ip.address(),
+    app: process.env.APP_NAME,
+    env: process.env.ENV_NAME,
+    index_meta: true,
+    tags: process.env.APP_NAME + ',' + process.env.ENV_NAME + ',' + os.hostname()
+});
+console.log = function (d) {
+    process.stdout.write(d + '\n');
+    logger.log(d);
+}
+logger.write = function (d) {
+    console.log(d);
 }
 
-startScript();
+//MAIN SCRIPT
+execute();
 
-async function scrape(url) {
-    return new Promise(function (resolve, reject) {
-        var options = {
-            method: 'GET',
-            url: 'http://db_user.scraperdb_user.com/',
-            qs: {
-                key: config.db_user_keys.SCRAPE,
-                url: url
-            }
-        };
-        request(options, function (error, response, body) {
-            if (error) {
-                reject(error);
-            } else {
-                const $ = cheerio.load(body);
-                let geojson = $('#App').html();
-                searchBegin = 'data-react-props=\"';
-                geojson = JSON.parse(
-                    geojson.substring(geojson.indexOf(searchBegin) + searchBegin.length, geojson.indexOf('\"', geojson.indexOf(searchBegin) + searchBegin.length + 2))
-                    .replace(/&quot;/g, '"')
-                    .replace(/&apos;/g, '\'')
-                );
-                resolve(geojson);
-            }
-        });
-    });
-}
-
-async function startScript() {
+async function execute() {
     const getFile = new Promise((resolve, reject) => {
         fs.readFile(config.FILES.LOCAL_URL_LIST, 'utf8', function read(err, data) {
             if (err) {
@@ -94,6 +85,35 @@ async function startScript() {
     await sleep(5000);
 
     process.exit();
+}
+
+
+async function scrape(url) {
+    return new Promise(function (resolve, reject) {
+        var options = {
+            method: 'GET',
+            url: 'http://db_user.scraperdb_user.com/',
+            qs: {
+                key: config.db_user_keys.SCRAPE,
+                url: url
+            }
+        };
+        request(options, function (error, response, body) {
+            if (error) {
+                reject(error);
+            } else {
+                const $ = cheerio.load(body);
+                let geojson = $('#App').html();
+                searchBegin = 'data-react-props=\"';
+                geojson = JSON.parse(
+                    geojson.substring(geojson.indexOf(searchBegin) + searchBegin.length, geojson.indexOf('\"', geojson.indexOf(searchBegin) + searchBegin.length + 2))
+                    .replace(/&quot;/g, '"')
+                    .replace(/&apos;/g, '\'')
+                );
+                resolve(geojson);
+            }
+        });
+    });
 }
 
 async function scrapeAllURLS() {
