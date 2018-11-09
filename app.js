@@ -71,19 +71,20 @@ async function execute() {
     fullResults = selectAndCombineResults(allResults)
     combinedResults = fullResults.combinedResults;
     combinedPricing = fullResults.combinedPricing;
-
     console.log("DONE WITH SELECT AND COMBINE - MOVING TO UPLOAD TO MYSQL");
-    response = await sql.runRaw('DELETE FROM `parkopedia_parking`; DELETE FROM `parkopedia_pricing`;');
 
+    response = await sql.runRaw('DELETE FROM `parkopedia_parking`; DELETE FROM `parkopedia_pricing`;');
     console.log("EMPTIED PARKOPEDIA SPOTS AND PRICING DATABASES");
-    response = await sql.addObjects('parkopedia_parking', ['id', 'lng', 'lat', 'pretty_name', 'payment_process', 'payment_types', 'restrictions', 'surface_type', 'address', 'city', 'country', 'capacity', 'facilities', 'phone_number', 'url'], combinedResults);
+
+    var addParkingPromise = sql.addObjects('parkopedia_parking', ['id', 'lng', 'lat', 'pretty_name', 'payment_process', 'payment_types', 'restrictions', 'surface_type', 'address', 'city', 'country', 'capacity', 'facilities', 'phone_number', 'url'], combinedResults);
+    var addPricingPromise = sql.addObjects('parkopedia_pricing', ['id', 'free_outside_hours', 'maxstay_mins', 'amount', 'amount_text', 'duration', 'duration_text', 'duration_descriptions', 'times', 'class', 'class_text'], combinedPricing);
 
     console.log("SUCCESS - UPLOADED SPOT INFO      - TOTAL RESULTS: " + combinedResults.length);
-    response = await sql.addObjects('parkopedia_pricing', ['id', 'free_outside_hours', 'maxstay_mins', 'amount', 'amount_text', 'duration', 'duration_text', 'duration_descriptions', 'times', 'class', 'class_text'], combinedPricing);
-
     console.log("SUCCESS - UPLOADED SPOT PRICING   - TOTAL RESULTS: " + combinedPricing.length);
-    await sleep(5000);
 
+    Promise.all([addParkingPromise, addPricingPromise]);
+
+    await sleep(5000);
     process.exit();
 }
 
