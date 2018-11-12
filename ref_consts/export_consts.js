@@ -15,10 +15,10 @@ function parseConsts() {
             for (var key in consts.features) {
                 expContent += "feature," + key + "," + consts.features[key].trim() + "\n";
             }
-            for (var key in consts.ctype) {
+            for (key in consts.ctype) {
                 expContent += "payment_type," + key + "," + consts.ctype[key].trim() + "\n";
             }
-            for (var key in consts.grestr) {
+            for (key in consts.grestr) {
                 expContent += "restriction," + key + "," + consts.grestr[key].trim() + "\n";
             }
             expContent = expContent.trim();

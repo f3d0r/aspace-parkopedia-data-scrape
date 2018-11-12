@@ -3,14 +3,14 @@ require('module-alias/register');
 process.setMaxListeners(0);
 
 //PACKAGE IMPORTS
-var cheerio = require('cheerio')
+var cheerio = require('cheerio');
 var fs = require('fs');
 var request = require('request');
 var moment = require('moment');
 var pLimit = require('p-limit');
 var Logger = require('logdna');
-var ip = require('ip')
-var os = require('os')
+var ip = require('ip');
+var os = require('os');
 
 //LOCAL IMPORTS
 const config = require('@config');
@@ -31,10 +31,10 @@ var logger = Logger.setupDefaultLogger(process.env.LOG_DNA_API_KEY, {
 console.log = function (d) {
     process.stdout.write(d + '\n');
     logger.log(d);
-}
+};
 logger.write = function (d) {
     console.log(d);
-}
+};
 
 //MAIN SCRIPT
 execute();
@@ -68,7 +68,7 @@ async function execute() {
     console.log("------------------------------------------------------------");
     console.log("DONE WRITING FILES           - MOVING TO PARSE/COMBINE FILES");
 
-    fullResults = selectAndCombineResults(allResults)
+    fullResults = selectAndCombineResults(allResults);
     combinedResults = fullResults.combinedResults;
     combinedPricing = fullResults.combinedPricing;
     console.log("DONE WITH SELECT AND COMBINE - MOVING TO UPLOAD TO MYSQL");
@@ -162,7 +162,7 @@ function selectAndCombineResults(allResults) {
                 currentArray.push(stringified);
             });
             combinedResults.push(currentArray);
-            combinedPricing.push(getFormattedPricing(pricing_json, current[0]))
+            combinedPricing.push(getFormattedPricing(pricing_json, current[0]));
         }
     });
     combinedPricing = [].concat.apply([], combinedPricing);
@@ -207,8 +207,8 @@ function selectRelevantContent(content, facilityKeys, paymentTypeKeys, restricti
                 restrictions = "";
                 try {
                     restrictions = restrictionKeys[rawRestrictions[0]];
-                    for (var index = 1; index < rawRestrictions.length; index++) {
-                        restrictions += "||" + restrictionKeys[rawRestrictions[index]];
+                    for (var rawRestrictionIndex = 1; rawRestrictionIndex < rawRestrictions.length; rawRestrictionIndex++) {
+                        restrictions += "||" + restrictionKeys[rawRestrictions[rawRestrictionIndex]];
                     }
                 } catch (e) {}
 
@@ -228,8 +228,8 @@ function selectRelevantContent(content, facilityKeys, paymentTypeKeys, restricti
                 facilities = "";
                 try {
                     facilities = facilityKeys[rawFacilities[0]];
-                    for (var index = 1; index < rawFacilities.length; index++) {
-                        facilities += "||" + facilityKeys[rawFacilities[index]];
+                    for (var facilityIndex = 1; facilityIndex < rawFacilities.length; facilityIndex++) {
+                        facilities += "||" + facilityKeys[rawFacilities[facilityIndex]];
                     }
                 } catch (e) {}
 
@@ -277,7 +277,7 @@ function parsePriceTimes(timesArray) {
     for (var index = 0; index < timesArray.length; index++) {
         formattedTime += timesArray[index].day + ";" + timesArray[index].from + "-" + timesArray[index].to + ";" + timesArray[index].day_text;
         if (index + 1 < timesArray.length) {
-            formattedTime + "||"
+            formattedTime + "||";
         }
     }
     return formattedTime;

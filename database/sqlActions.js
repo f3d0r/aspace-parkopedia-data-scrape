@@ -3,13 +3,13 @@ var db = require('./db');
 module.exports = {
     addObjects: function (database, keys, objects) {
         return new Promise(function (resolveAll, rejectAll) {
-            var reqs = []
+            var reqs = [];
             if (typeof objects != 'undefined' && objects.length > 0) {
                 db.getPools().forEach(function (currentPool) {
                     reqs.push(new Promise(function (resolve, reject) {
                         var sql = `INSERT INTO \`${database}\` (\`` + keys[0] + `\``;
                         for (index = 1; index < keys.length; index++) {
-                            sql += ', `' + keys[index] + '` '
+                            sql += ', `' + keys[index] + '` ';
                         }
                         sql += ') VALUES ?; ';
                         currentPool.query(sql, [objects], function (error, results, fields) {
@@ -53,4 +53,4 @@ module.exports = {
                 });
         });
     }
-}
+};
