@@ -6,6 +6,7 @@
     "dependencies": {
         "cheerio": "^1.0.0-rc.2",
         "fs": "0.0.1-security",
+        "https-proxy-agent": "^2.2.1",
         "ip": "^1.1.5",
         "logdna": "^2.0.4",
         "module-alias": "^2.1.0",
