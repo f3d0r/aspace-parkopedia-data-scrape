@@ -54,8 +54,6 @@ async function execute() {
         });
     });
 
-    console.log(parkopediaURLs);
-
     arrivalTime = moment().add(1, 'days').format("YYYYMMDD") + "0730";
     departureTime = moment().add(1, 'days').format("YYYYMMDD") + "1630";
 
