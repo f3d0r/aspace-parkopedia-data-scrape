@@ -11,6 +11,7 @@ var pLimit = require('p-limit');
 var Logger = require('logdna');
 var ip = require('ip');
 var os = require('os');
+var HttpsProxyAgent = require('https-proxy-agent');
 
 //LOCAL IMPORTS
 const config = require('@config');
@@ -37,21 +38,24 @@ logger.write = function (d) {
 };
 
 //MAIN SCRIPT
+var nextProxy = 0;
 execute();
 
 async function execute() {
-    const getFile = new Promise((resolve, reject) => {
+    parkopediaURLs = await new Promise((resolve, reject) => {
         fs.readFile(config.FILES.LOCAL_URL_LIST, 'utf8', function read(err, data) {
+            var lines = data.split("\n");
+            lines = lines.splice(0, lines.indexOf("----BREAK----"));
             if (err) {
                 reject(err);
             } else {
-                resolve(data);
+                resolve(lines);
             }
         });
     });
 
-    var data = await getFile;
-    parkopediaURLs = data.split("\n");
+    console.log(parkopediaURLs);
+
     arrivalTime = moment().add(1, 'days').format("YYYYMMDD") + "0730";
     departureTime = moment().add(1, 'days').format("YYYYMMDD") + "1630";
 
@@ -91,13 +95,12 @@ async function execute() {
 
 async function scrape(url) {
     return new Promise(function (resolve, reject) {
+        var proxy = getProxy();
+        var agent = new HttpsProxyAgent(proxy);
         var options = {
             method: 'GET',
-            url: 'http://db_user.scraperdb_user.com/',
-            qs: {
-                key: config.db_user_keys.SCRAPE,
-                url: url
-            }
+            url: url,
+            agent: agent
         };
         request(options, function (error, response, body) {
             if (error) {
@@ -300,4 +303,10 @@ function parseDurationDescriptions(descriptionsArray) {
 
 function sleep(millis) {
     return new Promise(resolve => setTimeout(resolve, millis));
+}
+
+function getProxy() {
+    if (nextProxy == config.PROXIES.length)
+        nextProxy = 0;
+    return "http://" + config.PROXIES[nextProxy++] + ":8889";
 }
