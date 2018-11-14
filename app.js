@@ -5,13 +5,12 @@ process.setMaxListeners(0);
 //PACKAGE IMPORTS
 var cheerio = require('cheerio');
 var fs = require('fs');
-var request = require('request');
 var moment = require('moment');
 var pLimit = require('p-limit');
 var Logger = require('logdna');
 var ip = require('ip');
 var os = require('os');
-var HttpsProxyAgent = require('https-proxy-agent');
+var puppeteer = require('puppeteer');
 
 //LOCAL IMPORTS
 const config = require('@config');
@@ -65,8 +64,11 @@ async function execute() {
     console.log("ARRIVAL TIME   : " + arrivalTime);
     console.log("DEPARTURE TIME : " + departureTime);
 
-    allResults = await scrapeAllURLS();
-
+    var reqs = [];
+    parkopediaURLs.forEach(function (currentURL) {
+        reqs.push(limit(() => scrape(currentURL)));
+    });
+    allResults = await Promise.all(reqs);
     console.log("------------------------------------------------------------");
     console.log("DONE WRITING FILES           - MOVING TO PARSE/COMBINE FILES");
 
@@ -92,46 +94,26 @@ async function execute() {
 
 
 async function scrape(url) {
-    return new Promise(function (resolve, reject) {
-        var proxy = getProxy();
-        var agent = new HttpsProxyAgent(proxy);
-        var options = {
-            method: 'GET',
-            url: url,
-            agent: agent
-        };
-        request(options, function (error, response, body) {
-            if (error) {
-                reject(error);
-            } else {
-                const $ = cheerio.load(body);
-                let geojson = $('#App').html();
-                searchBegin = 'data-react-props=\"';
-                geojson = JSON.parse(
-                    geojson.substring(geojson.indexOf(searchBegin) + searchBegin.length, geojson.indexOf('\"', geojson.indexOf(searchBegin) + searchBegin.length + 2))
-                    .replace(/&quot;/g, '"')
-                    .replace(/&apos;/g, '\'')
-                );
-                resolve(geojson);
-            }
-        });
+    const browser = await puppeteer.launch({
+        args: [
+            '--proxy-server=' + getProxy(),
+        ]
     });
-}
-
-async function scrapeAllURLS() {
-    return new Promise(function (resolveAll, rejectAll) {
-        var reqs = [];
-        parkopediaURLs.forEach(function (currentURL) {
-            reqs.push(limit(() => scrape(currentURL)));
-        });
-        Promise.all(reqs)
-            .then(function (responses) {
-                resolveAll(responses);
-            })
-            .catch(function (error) {
-                rejectAll(error);
-            });
+    const page = await browser.newPage();
+    await page.goto(url, {
+        waitLoad: true,
+        waitNetworkIdle: true // defaults to false
     });
+    var bodyHTML = await page.evaluate(() => document.body.innerHTML);
+    const $ = cheerio.load(bodyHTML);
+    let geojson = $('#App').html();
+    searchBegin = 'data-react-props=\"';
+    geojson = JSON.parse(
+        geojson.substring(geojson.indexOf(searchBegin) + searchBegin.length, geojson.indexOf('\"', geojson.indexOf(searchBegin) + searchBegin.length + 2))
+        .replace(/&quot;/g, '"')
+        .replace(/&apos;/g, '\'')
+    );
+    return geojson;
 }
 
 function selectAndCombineResults(allResults) {
@@ -306,5 +288,5 @@ function sleep(millis) {
 function getProxy() {
     if (nextProxy == config.PROXIES.length)
         nextProxy = 0;
-    return "http://" + config.PROXIES[nextProxy++] + ":8889";
+    return config.PROXIES[nextProxy++] + ":8889";
 }
