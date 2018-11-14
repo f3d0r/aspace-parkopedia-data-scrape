@@ -17,7 +17,7 @@ const config = require('@config');
 var sql = require('@sql');
 
 //CONSTANTS
-const limit = pLimit(8);
+const limit = pLimit(4);
 
 //LOGGING SET UP
 var logger = Logger.setupDefaultLogger(process.env.LOG_DNA_API_KEY, {
