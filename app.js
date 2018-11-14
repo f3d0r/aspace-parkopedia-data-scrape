@@ -105,6 +105,7 @@ async function scrape(url) {
         waitNetworkIdle: true // defaults to false
     });
     var bodyHTML = await page.evaluate(() => document.body.innerHTML);
+    browser.close();
     const $ = cheerio.load(bodyHTML);
     let geojson = $('#App').html();
     searchBegin = 'data-react-props=\"';
