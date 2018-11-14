@@ -17,7 +17,7 @@ const config = require('@config');
 var sql = require('@sql');
 
 //CONSTANTS
-const limit = pLimit(4);
+const limit = pLimit(5);
 
 //LOGGING SET UP
 var logger = Logger.setupDefaultLogger(process.env.LOG_DNA_API_KEY, {
@@ -100,10 +100,8 @@ async function scrape(url) {
         ]
     });
     const page = await browser.newPage();
-    await page.goto(url, {
-        waitLoad: true,
-        waitNetworkIdle: true // defaults to false
-    });
+    await page.goto(url);
+    await page.waitForSelector('#App > div');
     var bodyHTML = await page.evaluate(() => document.body.innerHTML);
     browser.close();
     const $ = cheerio.load(bodyHTML);
