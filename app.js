@@ -63,9 +63,6 @@ async function execute() {
         parkopediaURLs[index] += "?country=" + config.SEARCH_PARAMS.COUNTRY + "&arriving=" + arrivalTime + "&departing=" + departureTime;
     }
 
-    console.log("URLS #         : " + parkopediaURLs.length);
-    console.log("ARRIVAL TIME   : " + arrivalTime);
-    console.log("DEPARTURE TIME : " + departureTime);
 
     var reqs = [];
     parkopediaURLs.forEach(function (currentURL) {
@@ -75,6 +72,9 @@ async function execute() {
         allResults = await misc.promiseAllProgress(reqs,
             (p) => {
                 misc.clear();
+                console.log("URLS #         : " + parkopediaURLs.length);
+                console.log("ARRIVAL TIME   : " + arrivalTime);
+                console.log("DEPARTURE TIME : " + departureTime);
                 console.log(`% Done = ${p.toFixed(2)}`);
             });
     } catch (e) {
