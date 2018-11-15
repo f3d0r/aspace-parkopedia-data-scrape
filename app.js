@@ -15,6 +15,7 @@ var puppeteer = require('puppeteer');
 //LOCAL IMPORTS
 const config = require('@config');
 var sql = require('@sql');
+var misc = require('@misc');
 
 //CONSTANTS
 const limit = pLimit(5);
@@ -28,19 +29,21 @@ var logger = Logger.setupDefaultLogger(process.env.LOG_DNA_API_KEY, {
     index_meta: true,
     tags: process.env.APP_NAME + ',' + process.env.ENV_NAME + ',' + os.hostname()
 });
-console.log = function (d) {
+
+console.log = function (d, log = true) {
     process.stdout.write(d + '\n');
-    logger.log(d);
+    if (log)
+        logger.log(d);
 };
 logger.write = function (d) {
     console.log(d);
 };
 
 //MAIN SCRIPT
-var nextProxy = 0;
 execute();
 
 async function execute() {
+    misc.clear();
     parkopediaURLs = await new Promise((resolve, reject) => {
         fs.readFile(config.FILES.LOCAL_URL_LIST, 'utf8', function read(err, data) {
             var lines = data.split("\n");
@@ -66,9 +69,18 @@ async function execute() {
 
     var reqs = [];
     parkopediaURLs.forEach(function (currentURL) {
-        reqs.push(limit(() => scrape(currentURL)));
+        reqs.push(limit(() => scrape(currentURL, false)));
     });
-    allResults = await Promise.all(reqs);
+    try {
+        allResults = await misc.promiseAllProgress(reqs,
+            (p) => {
+                misc.clear();
+                console.log(`% Done = ${p.toFixed(2)}`);
+            });
+    } catch (e) {
+        console.log("Request Limit Exceeded!");
+        process.exit();
+    }
     console.log("------------------------------------------------------------");
     console.log("DONE WRITING FILES           - MOVING TO PARSE/COMBINE FILES");
 
@@ -88,24 +100,34 @@ async function execute() {
 
     Promise.all([addParkingPromise, addPricingPromise]);
 
-    await sleep(5000);
+    await misc.sleep(5000);
     process.exit();
 }
 
 
-async function scrape(url) {
-    const browser = await puppeteer.launch({
-        args: [
-            '--proxy-server=' + getProxy(),
-        ]
-    });
+async function scrape(url, useProxy = true) {
+    var browser;
+    if (useProxy) {
+        browser = await puppeteer.launch({
+            args: [
+                '--proxy-server=' + misc.getProxy(),
+            ]
+        });
+    } else {
+        browser = await puppeteer.launch();
+    }
     const page = await browser.newPage();
     await page.goto(url);
     await page.waitForSelector('#App > div');
     var bodyHTML = await page.evaluate(() => document.body.innerHTML);
     browser.close();
     const $ = cheerio.load(bodyHTML);
-    let geojson = $('#App').html();
+    var geojson = $('#App').html();
+
+    const isError = $('#App > div > div > div > div.ResultsPage__blockwarning').text().length > 5;
+    if (isError) {
+        throw new Error("Request Limit Exceeded");
+    }
     searchBegin = 'data-react-props=\"';
     geojson = JSON.parse(
         geojson.substring(geojson.indexOf(searchBegin) + searchBegin.length, geojson.indexOf('\"', geojson.indexOf(searchBegin) + searchBegin.length + 2))
@@ -278,14 +300,4 @@ function parseDurationDescriptions(descriptionsArray) {
     } else {
         return '';
     }
-}
-
-function sleep(millis) {
-    return new Promise(resolve => setTimeout(resolve, millis));
-}
-
-function getProxy() {
-    if (nextProxy == config.PROXIES.length)
-        nextProxy = 0;
-    return config.PROXIES[nextProxy++] + ":8889";
 }
