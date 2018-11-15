@@ -18,7 +18,7 @@ var sql = require('@sql');
 var misc = require('@misc');
 
 //CONSTANTS
-const limit = pLimit(process.env.MAX_CONNCURENT_REQUESTS);
+const limit = pLimit(process.env.MAX_CONCURRENT_REQUESTS);
 
 //LOGGING SET UP
 var logger = Logger.setupDefaultLogger(process.env.LOG_DNA_API_KEY, {
