@@ -592,7 +592,6 @@ https://en.parkopedia.com/parking/teec_nos_pos_az_86514/
 https://en.parkopedia.com/parking/dennehotso_az_86535/
 https://en.parkopedia.com/parking/many_farms_az_86538/
 https://en.parkopedia.com/parking/tsaile_az_86556/
-----BREAK----
 https://en.parkopedia.com/parking/los_angeles_ca_90001/
 https://en.parkopedia.com/parking/los_angeles_ca_90002/
 https://en.parkopedia.com/parking/los_angeles_ca_90003/
@@ -2114,6 +2113,7 @@ https://en.parkopedia.com/parking/kings_beach_ca_96143/
 https://en.parkopedia.com/parking/tahoe_city_ca_96145/
 https://en.parkopedia.com/parking/tahoe_vista_ca_96148/
 https://en.parkopedia.com/parking/south_lake_tahoe_ca_96150/
+----BREAK----
 https://en.parkopedia.com/parking/truckee_ca_96161/
 https://en.parkopedia.com/parking/truckee_ca_96162/
 https://en.parkopedia.com/parking/arvada_co_80002/
