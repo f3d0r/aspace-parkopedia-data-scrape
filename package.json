@@ -28,7 +28,8 @@
     "_moduleAliases": {
         "@root": ".",
         "@config": "config/",
-        "@sql": "database/sqlActions"
+        "@sql": "database/sqlActions",
+        "@misc": "misc/"
     },
     "_moduleDirectories": [
         "node_modules"
