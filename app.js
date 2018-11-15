@@ -18,7 +18,7 @@ var sql = require('@sql');
 var misc = require('@misc');
 
 //CONSTANTS
-const limit = pLimit(5);
+const limit = pLimit(process.env.MAX_CONNCURENT_REQUESTS);
 
 //LOGGING SET UP
 var logger = Logger.setupDefaultLogger(process.env.LOG_DNA_API_KEY, {
@@ -69,7 +69,7 @@ async function execute() {
 
     var reqs = [];
     parkopediaURLs.forEach(function (currentURL) {
-        reqs.push(limit(() => scrape(currentURL, false)));
+        reqs.push(limit(() => scrape(currentURL)));
     });
     try {
         allResults = await misc.promiseAllProgress(reqs,
