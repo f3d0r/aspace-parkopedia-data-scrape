@@ -322,7 +322,6 @@ https://en.parkopedia.com/parking/metlakatla_ak_99926/
 https://en.parkopedia.com/parking/point_baker_ak_99927/
 https://en.parkopedia.com/parking/wrangell_ak_99929/
 https://en.parkopedia.com/parking/ketchikan_ak_99950/
-----BREAK----
 https://en.parkopedia.com/parking/phoenix_az_85003/
 https://en.parkopedia.com/parking/phoenix_az_85004/
 https://en.parkopedia.com/parking/phoenix_az_85006/
@@ -593,6 +592,7 @@ https://en.parkopedia.com/parking/teec_nos_pos_az_86514/
 https://en.parkopedia.com/parking/dennehotso_az_86535/
 https://en.parkopedia.com/parking/many_farms_az_86538/
 https://en.parkopedia.com/parking/tsaile_az_86556/
+----BREAK----
 https://en.parkopedia.com/parking/los_angeles_ca_90001/
 https://en.parkopedia.com/parking/los_angeles_ca_90002/
 https://en.parkopedia.com/parking/los_angeles_ca_90003/
