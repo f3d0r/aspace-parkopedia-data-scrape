@@ -63,11 +63,11 @@ async function execute() {
         parkopediaURLs[index] += "?country=" + config.SEARCH_PARAMS.COUNTRY + "&arriving=" + arrivalTime + "&departing=" + departureTime;
     }
 
-
     var reqs = [];
     parkopediaURLs.forEach(function (currentURL) {
         reqs.push(limit(() => scrape(currentURL)));
     });
+    
     try {
         allResults = await misc.promiseAllProgress(reqs,
             (p) => {
@@ -104,19 +104,25 @@ async function execute() {
     process.exit();
 }
 
-
 async function scrape(url, useProxy = true) {
     var browser;
+    var page;
     if (useProxy) {
+        const proxyUrl = config.PROXIES.URL;
+        const username = config.PROXIES.USERNAME;
+        const password = config.PROXIES.PASSWORD;
         browser = await puppeteer.launch({
-            args: [
-                '--proxy-server=' + misc.getProxy(),
-            ]
+            args: [`--proxy-server=${proxyUrl}`],
+        });
+        page = await browser.newPage();
+        await page.authenticate({
+            username,
+            password
         });
     } else {
         browser = await puppeteer.launch();
+        page = await browser.newPage();
     }
-    const page = await browser.newPage();
     await page.goto(url);
     await page.waitForSelector('#App > div');
     var bodyHTML = await page.evaluate(() => document.body.innerHTML);
@@ -300,4 +306,25 @@ function parseDurationDescriptions(descriptionsArray) {
     } else {
         return '';
     }
+}
+
+async function getIP() {
+    var browser;
+    const proxyUrl = config.PROXIES.URL;
+    const username = config.PROXIES.USERNAME;
+    const password = config.PROXIES.PASSWORD;
+    browser = await puppeteer.launch({
+        args: [`--proxy-server=${proxyUrl}`],
+    });
+    const page = await browser.newPage();
+    await page.authenticate({
+        username,
+        password
+    });
+    await page.goto('https://icanhazip.com/');
+    var bodyHTML = await page.evaluate(() => document.body.innerHTML);
+    browser.close();
+    const $ = cheerio.load(bodyHTML);
+    var ip = $('body > pre').text();
+    return ip;
 }
