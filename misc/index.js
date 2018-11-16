@@ -1,7 +1,5 @@
 const config = require('@config');
 
-var nextProxy = 0;
-
 module.exports = {
     promiseAllProgress: function (proms, progress_cb) {
         let d = 0;
@@ -17,12 +15,24 @@ module.exports = {
     sleep: function (millis) {
         return new Promise(resolve => setTimeout(resolve, millis));
     },
-    getProxy: function () {
-        if (nextProxy == config.PROXIES.length)
-            nextProxy = 0;
-        return config.PROXIES[nextProxy++] + ":8889";
+    getProxy: function (proxies, proxiesUsed) {
+        var randomIndex = (getRandomInt(50));
+        while (proxiesUsed[randomIndex]) {
+            randomIndex = (getRandomInt(50));
+        }
+        proxiesUsed[randomIndex] = true;
+        proxyInfo = proxies[randomIndex].split(":");
+        return {
+            url: proxyInfo[0] + ":" + proxyInfo[1],
+            username: proxyInfo[2],
+            password: proxyInfo[3]
+        };
     },
     clear: function () {
         console.log('\033[2J');
     }
 };
+
+function getRandomInt(max) {
+    return Math.floor(Math.random() * Math.floor(max));
+}

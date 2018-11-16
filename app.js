@@ -20,6 +20,10 @@ var misc = require('@misc');
 //CONSTANTS
 const limit = pLimit(process.env.MAX_CONCURRENT_REQUESTS);
 
+//STATE
+var proxiesUsed;
+var allProxies;
+
 //LOGGING SET UP
 var logger = Logger.setupDefaultLogger(process.env.LOG_DNA_API_KEY, {
     hostname: os.hostname(),
@@ -44,17 +48,10 @@ execute();
 
 async function execute() {
     misc.clear();
-    parkopediaURLs = await new Promise((resolve, reject) => {
-        fs.readFile(config.FILES.LOCAL_URL_LIST, 'utf8', function read(err, data) {
-            var lines = data.split("\n");
-            lines = lines.splice(0, lines.indexOf("----BREAK----"));
-            if (err) {
-                reject(err);
-            } else {
-                resolve(lines);
-            }
-        });
-    });
+
+    allProxies = await loadProxies();
+    proxiesUsed = new Array(allProxies.length).fill(false);
+    parkopediaURLs = await loadParkopediaUrls();
 
     arrivalTime = moment().add(1, 'days').format("YYYYMMDD") + "0730";
     departureTime = moment().add(1, 'days').format("YYYYMMDD") + "1630";
@@ -67,15 +64,16 @@ async function execute() {
     parkopediaURLs.forEach(function (currentURL) {
         reqs.push(limit(() => scrape(currentURL)));
     });
-    
+    var firstLogging = true;
     try {
         allResults = await misc.promiseAllProgress(reqs,
             (p) => {
                 misc.clear();
-                console.log("URLS #         : " + parkopediaURLs.length);
-                console.log("ARRIVAL TIME   : " + arrivalTime);
-                console.log("DEPARTURE TIME : " + departureTime);
-                console.log(`% Done = ${p.toFixed(2)}`);
+                console.log("URLS #         : " + parkopediaURLs.length, firstLogging);
+                console.log("ARRIVAL TIME   : " + arrivalTime, firstLogging);
+                console.log("DEPARTURE TIME : " + departureTime, firstLogging);
+                console.log(`DONE           : ${p.toFixed(2)}%`);
+                firstLogging = false;
             });
     } catch (e) {
         console.log("Request Limit Exceeded!");
@@ -123,24 +121,29 @@ async function scrape(url, useProxy = true) {
         browser = await puppeteer.launch();
         page = await browser.newPage();
     }
-    await page.goto(url);
-    await page.waitForSelector('#App > div');
-    var bodyHTML = await page.evaluate(() => document.body.innerHTML);
-    browser.close();
-    const $ = cheerio.load(bodyHTML);
-    var geojson = $('#App').html();
-
-    const isError = $('#App > div > div > div > div.ResultsPage__blockwarning').text().length > 5;
-    if (isError) {
-        throw new Error("Request Limit Exceeded");
+    try {
+        await page.goto(url);
+        await page.waitForSelector('#App > div');
+        var bodyHTML = await page.evaluate(() => document.body.innerHTML);
+        browser.close();
+        const $ = cheerio.load(bodyHTML);
+        var geojson = $('#App').html();
+    
+        const isError = $('#App > div > div > div > div.ResultsPage__blockwarning').text().length > 5;
+        if (isError) {
+            return await scrape(url, useProxy);
+        } else {
+            searchBegin = 'data-react-props=\"';
+            geojson = JSON.parse(
+                geojson.substring(geojson.indexOf(searchBegin) + searchBegin.length, geojson.indexOf('\"', geojson.indexOf(searchBegin) + searchBegin.length + 2))
+                .replace(/&quot;/g, '"')
+                .replace(/&apos;/g, '\'')
+            );
+            return geojson;
+        }
+    } catch(e) {
+        return await scrape(url, useProxy);
     }
-    searchBegin = 'data-react-props=\"';
-    geojson = JSON.parse(
-        geojson.substring(geojson.indexOf(searchBegin) + searchBegin.length, geojson.indexOf('\"', geojson.indexOf(searchBegin) + searchBegin.length + 2))
-        .replace(/&quot;/g, '"')
-        .replace(/&apos;/g, '\'')
-    );
-    return geojson;
 }
 
 function selectAndCombineResults(allResults) {
@@ -310,21 +313,55 @@ function parseDurationDescriptions(descriptionsArray) {
 
 async function getIP() {
     var browser;
-    const proxyUrl = config.PROXIES.URL;
-    const username = config.PROXIES.USERNAME;
-    const password = config.PROXIES.PASSWORD;
+    var proxyInfo = misc.getProxy(allProxies, proxiesUsed);
+    const proxyUrl = proxyInfo.url;
+    const username = proxyInfo.username;
+    const password = proxyInfo.password;
     browser = await puppeteer.launch({
-        args: [`--proxy-server=${proxyUrl}`],
+        args: [`--proxy-server=${proxyUrl}`]
     });
     const page = await browser.newPage();
     await page.authenticate({
         username,
         password
     });
-    await page.goto('https://icanhazip.com/');
-    var bodyHTML = await page.evaluate(() => document.body.innerHTML);
-    browser.close();
-    const $ = cheerio.load(bodyHTML);
-    var ip = $('body > pre').text();
-    return ip;
+    try {
+        await page.goto('https://www.whatismyip.com/');
+        var bodyHTML = await page.evaluate(() => document.body.innerHTML);
+        browser.close();
+        const $ = cheerio.load(bodyHTML);
+        var ip = $('#post-7 > div.card-group > div:nth-child(1) > div > ul > li:nth-child(1)').text();
+        return ip;
+    } catch (e) {
+        console.log("HERE, WAITING...");
+        return await getIP();
+    }
+}
+
+async function loadProxies() {
+    var proxies = await new Promise((resolve, reject) => {
+        fs.readFile(config.FILES.PROXY_LIST, 'utf8', function read(err, data) {
+            var lines = data.split("\n");
+            if (err) {
+                reject(err);
+            } else {
+                resolve(lines);
+            }
+        });
+    });
+    return proxies;
+}
+
+function loadParkopediaUrls() {
+    return new Promise((resolve, reject) => {
+        fs.readFile(config.FILES.PARKOPEDIA_URL_LIST, 'utf8', function read(err, data) {
+            var lines = data.split("\n");
+            lines = lines.splice(0, lines.indexOf("----BREAK----"));
+            if (err) {
+                reject(err);
+            } else {
+                resolve(lines);
+            }
+        });
+    });
 }
