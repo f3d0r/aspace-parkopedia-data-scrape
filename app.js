@@ -60,21 +60,15 @@ async function execute() {
         reqs.push(limit(() => scrape(currentURL)));
     });
     var firstLogging = true;
-    try {
-        allResults = await misc.promiseAllProgress(reqs,
-            (p) => {
-                misc.clear();
-                console.log("URLS #         : " + parkopediaURLs.length, firstLogging);
-                console.log("ARRIVAL TIME   : " + arrivalTime, firstLogging);
-                console.log("DEPARTURE TIME : " + departureTime, firstLogging);
-                console.log(`DONE           : ${p.toFixed(2)}%`);
-                firstLogging = false;
-            });
-    } catch (e) {
-        console.log("ERROR: " + JSON.stringify(e));
-        console.log("Request Limit Exceeded!");
-        process.exit();
-    }
+    allResults = await misc.promiseAllProgress(reqs,
+        (p) => {
+            misc.clear();
+            console.log("URLS #         : " + parkopediaURLs.length, firstLogging);
+            console.log("ARRIVAL TIME   : " + arrivalTime, firstLogging);
+            console.log("DEPARTURE TIME : " + departureTime, firstLogging);
+            console.log(`DONE           : ${p.toFixed(2)}%`);
+            firstLogging = false;
+        });
     console.log("------------------------------------------------------------");
     console.log("DONE WRITING FILES           - MOVING TO PARSE/COMBINE FILES");
 
