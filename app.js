@@ -201,17 +201,9 @@ function selectRelevantContent(content, facilityKeys, paymentTypeKeys, restricti
                 }
             }
             if (typeof currentFeature.properties != "undefined" && typeof currentFeature.properties.name != "undefined" && currentFeature.properties.name != "") {
-                try {
-                    id = utf8.decode(currentFeature.properties.id);
-                } catch (e) {
-                    id = currentFeature.properties.id;
-                }
+                id = currentFeature.properties.id;
 
-                try {
-                    pretty_name = utf8.decode(currentFeature.properties.name);
-                } catch (e) {
-                    pretty_name = currentFeature.properties.name;
-                }
+                pretty_name = currentFeature.properties.name;
 
                 rawPayments = currentFeature.properties.payment_types;
                 payment_types = "";
@@ -236,24 +228,16 @@ function selectRelevantContent(content, facilityKeys, paymentTypeKeys, restricti
                 currentFeature.properties.address.forEach(function (current) {
                     try {
                         address += (utf8.decode(current) + " ");
-                    } catch(e) {
+                    } catch (e) {
                         address += current + " ";
                     }
                 });
                 address = address.trim();
 
-                try {
-                    city = utf8.decode(currentFeature.properties.city);
-                } catch(e) {
-                    city = currentFeature.properties.city;
-                }
-                
-                try {
-                    country = utf8.decode(currentFeature.properties.country);
-                } catch(e) {
-                    country = currentFeature.properties.country;
-                }
-                
+                city = currentFeature.properties.city;
+
+                country = currentFeature.properties.country;
+
                 capacity = currentFeature.properties.capacity;
                 payment_process = currentFeature.properties.payment_process;
 
