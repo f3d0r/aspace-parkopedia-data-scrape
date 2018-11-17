@@ -201,8 +201,8 @@ function selectRelevantContent(content, facilityKeys, paymentTypeKeys, restricti
                 }
             }
             if (typeof currentFeature.properties != "undefined" && typeof currentFeature.properties.name != "undefined" && currentFeature.properties.name != "") {
-                id = currentFeature.properties.id;
-                pretty_name = currentFeature.properties.name;
+                id = utf8.decode(currentFeature.properties.id);
+                pretty_name = utf8.decode(currentFeature.properties.name);
 
                 rawPayments = currentFeature.properties.payment_types;
                 payment_types = "";
@@ -222,17 +222,17 @@ function selectRelevantContent(content, facilityKeys, paymentTypeKeys, restricti
                     }
                 } catch (e) {}
 
-                surface_type = currentFeature.properties.surface_type;
+                surface_type = utf8.decode(currentFeature.properties.surface_type);
                 address = "";
                 currentFeature.properties.address.forEach(function (current) {
-                    address += (current + " ");
+                    address += (utf8.decode(current) + " ");
                 });
                 address = address.trim();
 
-                city = currentFeature.properties.city;
-                country = currentFeature.properties.country;
-                capacity = currentFeature.properties.capacity;
-                payment_process = currentFeature.properties.payment_process;
+                city = utf8.decode(currentFeature.properties.city);
+                country = utf8.decode(currentFeature.properties.country);
+                capacity = utf8.decode(currentFeature.properties.capacity);
+                payment_process = utf8.decode(currentFeature.properties.payment_process);
 
                 rawFacilities = currentFeature.properties.facilities;
                 facilities = "";
@@ -243,7 +243,7 @@ function selectRelevantContent(content, facilityKeys, paymentTypeKeys, restricti
                     }
                 } catch (e) {}
 
-                phone_number = currentFeature.properties.phone;
+                phone_number = utf8.decode(currentFeature.properties.phone);
                 url = currentFeature.properties.url;
 
                 pricing_json = currentFeature.properties.prices;
