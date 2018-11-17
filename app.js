@@ -222,7 +222,7 @@ function selectRelevantContent(content, facilityKeys, paymentTypeKeys, restricti
                     }
                 } catch (e) {}
 
-                surface_type = utf8.decode(currentFeature.properties.surface_type);
+                surface_type = currentFeature.properties.surface_type;
                 address = "";
                 currentFeature.properties.address.forEach(function (current) {
                     address += (utf8.decode(current) + " ");
@@ -231,8 +231,8 @@ function selectRelevantContent(content, facilityKeys, paymentTypeKeys, restricti
 
                 city = utf8.decode(currentFeature.properties.city);
                 country = utf8.decode(currentFeature.properties.country);
-                capacity = utf8.decode(currentFeature.properties.capacity);
-                payment_process = utf8.decode(currentFeature.properties.payment_process);
+                capacity = currentFeature.properties.capacity;
+                payment_process = currentFeature.properties.payment_process;
 
                 rawFacilities = currentFeature.properties.facilities;
                 facilities = "";
@@ -243,7 +243,7 @@ function selectRelevantContent(content, facilityKeys, paymentTypeKeys, restricti
                     }
                 } catch (e) {}
 
-                phone_number = utf8.decode(currentFeature.properties.phone);
+                phone_number = currentFeature.properties.phone;
                 url = currentFeature.properties.url;
 
                 pricing_json = currentFeature.properties.prices;
