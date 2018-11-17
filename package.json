@@ -8,12 +8,12 @@
         "fs": "0.0.1-security",
         "ip": "^1.1.5",
         "logdna": "^2.0.4",
-        "module-alias": "^2.1.0",
         "moment": "^2.22.2",
         "os": "^0.1.1",
         "p-limit": "^2.0.0",
         "promise-mysql": "^3.3.1",
-        "puppeteer": "^1.10.0"
+        "puppeteer": "^1.10.0",
+        "utf8": "^3.0.0"
     },
     "repository": {
         "type": "git",
@@ -24,14 +24,5 @@
     "bugs": {
         "url": "https://gitlab.com/db_name/inrix-data-scrape/issues"
     },
-    "homepage": "https://gitlab.com/db_name/inrix-data-scrape#readme",
-    "_moduleAliases": {
-        "@root": ".",
-        "@config": "config/",
-        "@sql": "database/sqlActions",
-        "@misc": "misc/"
-    },
-    "_moduleDirectories": [
-        "node_modules"
-    ]
+    "homepage": "https://gitlab.com/db_name/inrix-data-scrape#readme"
 }
