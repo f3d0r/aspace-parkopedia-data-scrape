@@ -1,3 +1,3 @@
 # parkopedia_data_scrape
 
-db_name, Inc. - Parkopedia Data Scrape
+aspace, Inc. - Parkopedia Data Scrape

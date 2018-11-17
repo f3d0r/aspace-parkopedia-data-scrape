@@ -1,6 +1,6 @@
 https://en.parkopedia.com/parking/locations/seattle_washington_98104_united_states_c23nb36407h/
 https://en.parkopedia.com/parking/locations/seattle_washington_united_states_c23nb61bnpd/
-https://en.parkopedia.com/parking/locations/cdb_usertol_hill_seattle_washington_98102_united_states_c23nbtdkwxy/
+https://en.parkopedia.com/parking/locations/capitol_hill_seattle_washington_98102_united_states_c23nbtdkwxy/
 https://en.parkopedia.com/parking/locations/new_york_city_new_york_united_states_dr5rut0b4mm/
 https://en.parkopedia.com/parking/seattle/?arriving=201809260700&leaving=201809261700/
 https://en.parkopedia.com/parking/locations/university_of_washington_ne_pacific_st_seattle_washington_98105_united_states_c23p0g9k7wx/
@@ -1098,7 +1098,7 @@ https://en.parkopedia.com/parking/wildomar_ca_92595/
 https://en.parkopedia.com/parking/winchester_ca_92596/
 https://en.parkopedia.com/parking/foothill_ranch_ca_92610/
 https://en.parkopedia.com/parking/brea_ca_92621/
-https://en.parkopedia.com/parking/cdb_userstrano_beach_ca_92624/
+https://en.parkopedia.com/parking/capistrano_beach_ca_92624/
 https://en.parkopedia.com/parking/corona_del_mar_ca_92625/
 https://en.parkopedia.com/parking/costa_mesa_ca_92626/
 https://en.parkopedia.com/parking/costa_mesa_ca_92627/
@@ -1603,7 +1603,7 @@ https://en.parkopedia.com/parking/aromas_ca_95004/
 https://en.parkopedia.com/parking/ben_lomond_ca_95005/
 https://en.parkopedia.com/parking/boulder_creek_ca_95006/
 https://en.parkopedia.com/parking/campbell_ca_95008/
-https://en.parkopedia.com/parking/cdb_usertola_ca_95010/
+https://en.parkopedia.com/parking/capitola_ca_95010/
 https://en.parkopedia.com/parking/castroville_ca_95012/
 https://en.parkopedia.com/parking/coyote_ca_95013/
 https://en.parkopedia.com/parking/monte_vista_ca_95014/
@@ -3841,7 +3841,7 @@ https://en.parkopedia.com/parking/bader_il_62624/
 https://en.parkopedia.com/parking/cantrall_il_62625/
 https://en.parkopedia.com/parking/comer_il_62626/
 https://en.parkopedia.com/parking/panther_creek_il_62627/
-https://en.parkopedia.com/parking/chdb_usern_il_62628/
+https://en.parkopedia.com/parking/chapin_il_62628/
 https://en.parkopedia.com/parking/chatham_il_62629/
 https://en.parkopedia.com/parking/hagaman_il_62630/
 https://en.parkopedia.com/parking/concord_il_62631/
@@ -4153,7 +4153,7 @@ https://en.parkopedia.com/parking/bloomfield_mt_59315/
 https://en.parkopedia.com/parking/boyes_mt_59316/
 https://en.parkopedia.com/parking/belle_creek_mt_59317/
 https://en.parkopedia.com/parking/brusett_mt_59318/
-https://en.parkopedia.com/parking/cdb_usertol_mt_59319/
+https://en.parkopedia.com/parking/capitol_mt_59319/
 https://en.parkopedia.com/parking/cohagen_mt_59322/
 https://en.parkopedia.com/parking/ekalaka_mt_59324/
 https://en.parkopedia.com/parking/fallon_mt_59326/
@@ -4686,7 +4686,7 @@ https://en.parkopedia.com/parking/tatum_nm_88267/
 https://en.parkopedia.com/parking/carrizozo_nm_88301/
 https://en.parkopedia.com/parking/alamogordo_nm_88310/
 https://en.parkopedia.com/parking/bent_nm_88314/
-https://en.parkopedia.com/parking/cdb_usertan_nm_88316/
+https://en.parkopedia.com/parking/capitan_nm_88316/
 https://en.parkopedia.com/parking/cloudcroft_nm_88317/
 https://en.parkopedia.com/parking/corona_nm_88318/
 https://en.parkopedia.com/parking/encino_nm_88321/
@@ -9145,7 +9145,7 @@ https://en.parkopedia.com/parking/powell_wy_82435/
 https://en.parkopedia.com/parking/shell_wy_82441/
 https://en.parkopedia.com/parking/ten_sleep_wy_82442/
 https://en.parkopedia.com/parking/grass_creek_wy_82443/
-https://en.parkopedia.com/parking/wdb_userti_wy_82450/
+https://en.parkopedia.com/parking/wapiti_wy_82450/
 https://en.parkopedia.com/parking/gas_hills_wy_82501/
 https://en.parkopedia.com/parking/arapahoe_wy_82510/
 https://en.parkopedia.com/parking/crowheart_wy_82512/

@@ -1,7 +1,7 @@
 {
-    "name": "db_name_inrix_data_scrape",
+    "name": "aspace_inrix_data_scrape",
     "version": "1.0.0",
-    "description": "db_name, Inc. - INRIX Data Scraper",
+    "description": "aspace, Inc. - INRIX Data Scraper",
     "main": "app.js",
     "dependencies": {
         "cheerio": "^1.0.0-rc.2",
@@ -17,12 +17,12 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+ssh://git@gitlab.com/db_name/inrix-data-scrape.git"
+        "url": "git+ssh://git@gitlab.com/aspace/inrix-data-scrape.git"
     },
     "author": "",
     "license": "MIT",
     "bugs": {
-        "url": "https://gitlab.com/db_name/inrix-data-scrape/issues"
+        "url": "https://gitlab.com/aspace/inrix-data-scrape/issues"
     },
-    "homepage": "https://gitlab.com/db_name/inrix-data-scrape#readme"
+    "homepage": "https://gitlab.com/aspace/inrix-data-scrape#readme"
 }
