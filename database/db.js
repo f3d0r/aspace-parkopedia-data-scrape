@@ -1,5 +1,5 @@
 var mysql = require('promise-mysql');
-const constants = require('@config');
+const constants = require('../config');
 
 var pools = [];
 constants.DATABASE_IPS.forEach(function (currentIP) {
