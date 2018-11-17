@@ -1,5 +1,4 @@
 //GLOBAL IMPORTS
-require('module-alias/register');
 process.setMaxListeners(0);
 
 //PACKAGE IMPORTS
@@ -11,18 +10,16 @@ var Logger = require('logdna');
 var ip = require('ip');
 var os = require('os');
 var puppeteer = require('puppeteer');
+var utf8 = require('utf8');
 
 //LOCAL IMPORTS
-const config = require('@config');
-var sql = require('@sql');
-var misc = require('@misc');
+const config = require('./config');
+var sql = require('./database/sqlActions');
+var misc = require('./misc');
 
 //CONSTANTS
 const limit = pLimit(process.env.MAX_CONCURRENT_REQUESTS);
-
-//STATE
-var proxiesUsed;
-var allProxies;
+const timeoutMilli = 15000;
 
 //LOGGING SET UP
 var logger = Logger.setupDefaultLogger(process.env.LOG_DNA_API_KEY, {
@@ -49,8 +46,6 @@ execute();
 async function execute() {
     misc.clear();
 
-    allProxies = await loadProxies();
-    proxiesUsed = new Array(allProxies.length).fill(false);
     parkopediaURLs = await loadParkopediaUrls();
 
     arrivalTime = moment().add(1, 'days').format("YYYYMMDD") + "0730";
@@ -122,13 +117,15 @@ async function scrape(url, useProxy = true) {
         page = await browser.newPage();
     }
     try {
-        await page.goto(url);
+        await page.goto(url, {
+            timeout: timeoutMilli
+        });
         await page.waitForSelector('#App > div');
         var bodyHTML = await page.evaluate(() => document.body.innerHTML);
         browser.close();
         const $ = cheerio.load(bodyHTML);
         var geojson = $('#App').html();
-    
+
         const isError = $('#App > div > div > div > div.ResultsPage__blockwarning').text().length > 5;
         if (isError) {
             return await scrape(url, useProxy);
@@ -141,7 +138,7 @@ async function scrape(url, useProxy = true) {
             );
             return geojson;
         }
-    } catch(e) {
+    } catch (e) {
         return await scrape(url, useProxy);
     }
 }
@@ -313,10 +310,9 @@ function parseDurationDescriptions(descriptionsArray) {
 
 async function getIP() {
     var browser;
-    var proxyInfo = misc.getProxy(allProxies, proxiesUsed);
-    const proxyUrl = proxyInfo.url;
-    const username = proxyInfo.username;
-    const password = proxyInfo.password;
+    const proxyUrl = config.PROXIES.URL;
+    const username = config.PROXIES.USERNAME;
+    const password = config.PROXIES.PASSWORD;
     browser = await puppeteer.launch({
         args: [`--proxy-server=${proxyUrl}`]
     });
@@ -326,7 +322,9 @@ async function getIP() {
         password
     });
     try {
-        await page.goto('https://www.whatismyip.com/');
+        await page.goto('https://www.whatismyip.com/', {
+            timeout: timeoutMilli
+        });
         var bodyHTML = await page.evaluate(() => document.body.innerHTML);
         browser.close();
         const $ = cheerio.load(bodyHTML);
@@ -336,20 +334,6 @@ async function getIP() {
         console.log("HERE, WAITING...");
         return await getIP();
     }
-}
-
-async function loadProxies() {
-    var proxies = await new Promise((resolve, reject) => {
-        fs.readFile(config.FILES.PROXY_LIST, 'utf8', function read(err, data) {
-            var lines = data.split("\n");
-            if (err) {
-                reject(err);
-            } else {
-                resolve(lines);
-            }
-        });
-    });
-    return proxies;
 }
 
 function loadParkopediaUrls() {
