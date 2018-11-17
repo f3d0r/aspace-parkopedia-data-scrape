@@ -71,6 +71,7 @@ async function execute() {
                 firstLogging = false;
             });
     } catch (e) {
+        console.log("ERROR: " + JSON.stringify(e));
         console.log("Request Limit Exceeded!");
         process.exit();
     }
