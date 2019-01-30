@@ -1,3 +1,3 @@
-# parkopedia_data_scrape
+# aspace-parkopedia-data-scrape
 
-aspace, Inc. - Parkopedia Data Scrape
+aspace, Inc. - Parkopedia Data Scraper
