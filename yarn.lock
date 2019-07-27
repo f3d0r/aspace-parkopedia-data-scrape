@@ -477,10 +477,10 @@ progress@^2.0.1:
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
 
-promise-mysql@^4.0.4:
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/promise-mysql/-/promise-mysql-4.0.4.tgz#e7bc47ad9b4e3119e559ae5b0c519f19b1952ee4"
-  integrity sha512-bNDXHrHvHOfdmwLx77XbG54lZQFIUFrPU4Oc7nPRli3dK6brpQ3jwIB2WUzu1Jbf9BPV9RiX3RqamxXnm45AlQ==
+promise-mysql@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/promise-mysql/-/promise-mysql-4.1.0.tgz#723bd4ae2d62d63c468eb8be9be46637238fe34f"
+  integrity sha512-0xloKnn/nZ1oLvmIzOBlNk/3OIT6dJnh88EXWafkoDz9NM4AZqzns2vgCB6ZrCIH4NBgCKAadPDnvLSdCmSbdg==
   dependencies:
     "@types/bluebird" "^3.5.26"
     "@types/mysql" "^2.15.2"
