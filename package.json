@@ -11,8 +11,8 @@
         "moment": "^2.24.0",
         "os": "^0.1.1",
         "p-limit": "^2.2.0",
-        "promise-mysql": "^4.0.4",
-        "puppeteer": "^1.18.1",
+        "promise-mysql": "^4.1.0",
+        "puppeteer": "^1.19.0",
         "utf8": "^3.0.0"
     },
     "repository": {
