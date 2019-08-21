@@ -347,10 +347,10 @@ lodash@^4.15.0:
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.14.tgz#9ce487ae66c96254fe20b599f21b6816028078ba"
   integrity sha512-mmKYbW3GLuJeX+iGP+Y7Gp1AiGHGbXHCOh/jZmrawMmsE7MS4znI3RL2FsjbqOyMayHInjOeykW7PEajUk1/xw==
 
-logdna@^3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/logdna/-/logdna-3.2.1.tgz#a0516d92bce197061d31b0c62a97db664229f1d0"
-  integrity sha512-x9GAE5FRKgDBnCmcWzg7ir8yXqfVUMn+XtaLFq/SdjPKPuhz+PAKb1eHZ+o6rtcm7kH/oB3yQYJaGBm+qk8vow==
+logdna@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/logdna/-/logdna-3.3.0.tgz#b517c9550f62784184ffe4f9ddc0a3fb335aab16"
+  integrity sha512-NLxcLiLGwSML3WgxYkr8LC6zZgIPp41kqu3Zu1Gl5Dm2zv0kntDEj06peFpFd+RMxvAyXb7+QCbn6MegGFWWBg==
   dependencies:
     agentkeepalive "^2.2.0"
     axios "^0.19.0"
