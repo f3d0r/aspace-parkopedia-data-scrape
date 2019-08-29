@@ -7,10 +7,10 @@
         "cheerio": "^1.0.0-rc.3",
         "fs": "0.0.1-security",
         "ip": "^1.1.5",
-        "logdna": "^3.2.1",
+        "logdna": "^3.3.0",
         "moment": "^2.24.0",
         "os": "^0.1.1",
-        "p-limit": "^2.2.0",
+        "p-limit": "^2.2.1",
         "promise-mysql": "^4.1.0",
         "puppeteer": "^1.19.0",
         "utf8": "^3.0.0"
